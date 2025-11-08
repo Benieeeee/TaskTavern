@@ -34,7 +34,7 @@ form.addEventListener("submit", function (event) {
 
     alert("Login successful! Welcome, " + username + "!");
 
-    window.location.href = "../Homepage/Home.html";
+    window.location.href = "Homepage/Home.html";
   } else {
 
     alert("Invalid username or password. Access denied.");
@@ -90,6 +90,7 @@ passwordInput.onkeyup = function () {
     lengthEl.classList.add("invalid");
   }
 };
+
 
 
 
