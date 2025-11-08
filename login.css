@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url(../WebBackground/1.png);
+    background-image: url(WebBackground/1.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -238,4 +238,5 @@ a:active {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
