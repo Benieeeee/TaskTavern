@@ -1,0 +1,105 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url(../../WebBackground/4.jpg);
+  image-rendering: pixelated;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+/* -------------------- SHOP HEADER -------------------- */
+.header-logo {
+  position: absolute;
+  top: 10%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.header-logo img {
+  height: 80px; 
+  image-rendering: pixelated;
+}
+
+/* -------------------- MAIN SHOP BOX -------------------- */
+.shop {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  width: 850px;
+  z-index: 1;
+  background-color: rgb(131, 97, 31); /* The solid brown background */
+  border-radius: 20px; 
+}
+
+/* Container for Item Rows */
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0; 
+  width: 100%;
+}
+
+.top ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 15px 0; 
+}
+
+.top li {
+  margin: 0 20px; 
+}
+
+/* -------------------- ITEM BUTTON (THE CONTAINER IMAGE) -------------------- */
+.shop-item {
+  /* THIS LINE is the key to showing your parchment container image */
+  background-image: url(Graphics/containerr.png); 
+  background-color: transparent;
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  
+  /* Size of the clickable button/container */
+  height: 175px; 
+  width: 175px; 
+  
+  /* Center the item image inside the button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.shop-item:hover {
+  transform: scale(1.05);
+}
+
+/* -------------------- ITEM IMAGE (THE HEAD ACCESSORY) -------------------- */
+.shop-item img {
+  height: 55px; /* Size of the small item image */
+  image-rendering: pixelated;
+}
+
+/* -------------------- ANIMATION -------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
