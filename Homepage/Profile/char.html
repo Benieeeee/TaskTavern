@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+
+
+    <title>TaskTavern Profile</title>
+
+    <link rel="icon" type="img/jpg" href="../../../logo.png">
+</head>
+
+<body>
+
+    <script>
+        if (!sessionStorage.getItem("loggedIn")) {
+            alert("Access denied. Please log in first.");
+            window.location.href = "../../../LogIn X SignUp/Index.html";
+        }
+    </script>
+
+    <a link class="Return" href="../Home.html"> Return </a>
+
+    <div class="Char-Box">
+        <div class="UI">
+            <h1>TaskTavern</h1>
+            <div class="Gender">
+                <img class="Boy" id="M" src="../Customization/Body M.png">
+                <img class="Girl" id="F" src="../Customization/Body F.png">
+            </div>
+
+            <div class="clothing"></div>
+            <div class="Butt">
+                <button id="btnMale" onclick="">Male</button>
+                <img id="Male" src="../Customization/Body M.png" alt="Male">
+                <button id="btnFemale">Female</button>
+                <img id="Male" src="../Customization/Body F.png" alt="Female">
+            </div>
+
+        </div>
+
+            <input type="text" id="usernameInput" placeholder="Username :3">
+   
+
+        <button class="Shop" id="Shop" onclick="location.href='../Shop/Shop.html'">
+            <img src="Shop logo"> Shop Logo here plss</img>
+        </button>
+
+        <div class="menu">
+
+            <!-- HAIRSTYLE -->
+            <button class="collapsible">Hairstyle</button>
+            <div class="content">
+                <ul>
+                    <li><button><img src="../Customization/Head Accesories/Layer 8.png"></button></li>
+                    <li><button><img src="../Customization/Head Accesories/Layer 7.png"></button></li>
+                    <li><button><img src="../Customization/Head Accesories/Layer 6.png"></button></li>
+                    <li><button><img src="../Customization/Head Accesories/Layer 10.png"></button></li>
+                </ul>
+            </div>
+
+            <!-- SHIRTS -->
+            <button class="collapsible">Shirts</button>
+            <div class="content">
+                <ul>
+                    <li><button><img src="../Customization/Clothing/Layer 11.png"></button></li>
+                    <li><button><img src="../Customization/Clothing/Layer 14.png"></button></li>
+                    <li><button><img src="../Customization/Clothing/Layer 16.png"></button></li>
+                    <li><button><img src="../Customization/Clothing/Layer 18.png"></button></li>
+                    <li><button><img src="../Customization/Clothing/Layer 19.png"></button></li>
+                </ul>
+            </div>
+
+            <!-- PANTS -->
+            <button class="collapsible">Pants</button>
+            <div class="content">
+                <ul>
+                    <li><button><img src="../Customization/Pants/Layer 20.png"></button></li>
+                    <li><button><img src="../Customization/Pants/Layer 21.png"></button></li>
+                    <li><button><img src="../Customization/Pants/Layer 22.png"></button></li>
+                    <li><button><img src="../Customization/Pants/Layer 23.png"></button></li>
+                    <li><button><img src="../Customization/Pants/Layer 24.png"></button></li>
+                </ul>
+            </div>
+
+        </div>
+
+        </center>
+
+    </div>
+
+
+    <script src="Profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="Home.css" />
+  <link rel="icon" type="img/jpg" href="../logo.png" />
+  <title>TaskTavern Home</title>
+</head>
+
+<body>
+  <div class="fadeaway">
+    <center>
+      <h1><img src="../TaskTavern.png"></h1>
+    </center>
+
+    <script>
+      if (!sessionStorage.getItem("loggedIn")) {
+        alert("Access denied. Please log in first.");
+        window.location.href = "../LogIn X SignUp/Index.html";
+      }
+    </script>
+
+    <div class="main">
+
+      <button class="Pfp" onclick="location.href='Profile/char.html'">
+        <div class="Profile">
+          <img src="input profile" alt="Profile">
+        </div>
+      </button>
+
+      <div class="signout">
+        <a href="../LogIn X SignUp/index.html">Log Out</a>
+      </div>
+    </div>
+
+    <button class="TaskButt" id="TaskButt">Schedule</button>
+    <div class="sidepnnl" id="sidepnnl">
+      <button id="close-sidebar" class="closebutt">Close</button>
+      <ul class="List">
+        <li><button class="mon" onclick="location.href='TaskDay/monday/mon.html'"><img src = "/Homepage/TaskDay/Buttons/MONDAY.png"></button></li>
+        <li><button class="tue" onclick="location.href='TaskDay/tuesday/tue.html'"><img src = "/Homepage/TaskDay/Buttons/TUESDAY.png"></button></li>
+        <li><button class="wed" onclick="location.href='TaskDay/wednesday/wed.html'"><img src = "/Homepage/TaskDay/Buttons/WEDNESDAY.png"></button></li>
+        <li><button class="thurs" onclick="location.href='TaskDay/thurdays/thurs.html'"><img src = "/Homepage/TaskDay/Buttons/THURSDAY.png"></button></li>
+        <li><button class="fri" onclick="location.href='TaskDay/friday/fri.html'"><img src = "/Homepage/TaskDay/Buttons/FRIDAY.png"></button></li>
+        <li><button class="sat" onclick="location.href='TaskDay/saturday/sat.html'"><img src = "/Homepage/TaskDay/Buttons/SATURDAY.png"></button></li>
+        <li><button class="sun" onclick="location.href='TaskDay/sunday/sun.html'"><img src = "/Homepage/TaskDay/Buttons/SUNDAY.png"></button></li>
+      </ul>
+    </div>
+
+    <div class="Task" id="task-compilation-area">
+
+    </div>
+
+  </div>
+
+  <script src="sidebar.js"></script> 
+  <script src="taskCompiler.js"></script>
+</body>
+
+</html>

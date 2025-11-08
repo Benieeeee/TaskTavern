@@ -1,0 +1,339 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url(../../../WebBackground/2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  width: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+.main {
+  position: relative;
+  margin-left: 100%;
+  justify-content: center;
+}
+
+
+.signout {
+  display: flex;
+  position: fixed;
+  right: 30px;
+  margin-top: 75px;
+  margin-bottom: 25px;
+  right: 51px;
+  font-size: 15.9px;
+}
+
+h1 {
+  color: #f6ac3d;
+}
+
+.Pfp {
+  display: flex;
+  position: fixed;
+  right: 29px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  height: fit-content;
+  width: fit-content;
+  background-color: ;
+
+}
+
+.Day {
+  position: relative;
+  margin-left: 23%;
+  background-color: transparent;
+}
+
+.Day img {
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -50px;
+  margin-top: 20px;
+  margin-bottom: -25px;
+}
+
+.Day:hover {
+  background-color: transparent;
+  transform: scale(1.02);
+}
+
+.sidepnnl::-webkit-scrollbar {
+  display: none;
+}
+
+.sidepnnl {
+  image-rendering: pixelated;
+  background-color: #eabe59;
+  height: 100vh;
+  width: 100vh;
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.clear-btn:hover {
+
+}
+
+.mon,
+.tue,
+.wed,
+.thurs,
+.fri,
+.sat,
+.sun {
+  height: 80px;
+  margin-top: 20px;
+  width: 250px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.mon img {
+  margin-top: -100px;
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+}
+
+.tue img {
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+  margin-top: -115px;
+}
+
+.wed img {
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+  margin-top: -115px;
+}
+
+.thurs img {
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+  margin-top: -115px;
+}
+
+.fri img {
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+  margin-top: -115px;
+}
+
+.sat img {
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+  margin-top: -115px;
+}
+
+.sun img {
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+  margin-top: -115px;
+}
+
+
+.mon:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+
+.tue:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+
+.wed:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+
+.thurs:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+
+.fri:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+
+.sat:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+
+.sun:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+.sun {
+  margin-bottom: 50px;
+  background-color: transparent;
+}
+
+.List {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+button:hover {
+  transform: scale(1.05);
+}
+
+
+.points-display {
+  margin-top: 1;
+  background: #7e5a05;
+  color: #f6ac3d;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: auto;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-input {
+  display: flex;
+  margin-top: 109px;
+  margin-right: -325px;
+  gap: 15px;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  width: 200px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid#7e5a05;
+  font-size: 14px;
+}
+
+
+button {
+  background-color: #f7b929;
+  color: #715714;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #eabe59;
+}
+
+button:hover,
+.thurs {
+  transform: scale(1.05);
+}
+
+
+
+
+.task-list {
+  width: 95%;
+  max-width: 800px;
+  margin-right: -100%;
+}
+
+
+
+.task {
+  background: #FFDBBB;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 15%;
+}
+
+.task.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+a:link {
+  color: #f6ac3d;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #f6ac3d;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #eabe59;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: #db7500;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
