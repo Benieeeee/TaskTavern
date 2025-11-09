@@ -18,7 +18,7 @@
     <script>
       if (!sessionStorage.getItem("loggedIn")) {
         alert("Access denied. Please log in first.");
-        window.location.href = "../../index.html";
+        window.location.href = "../Index.html";
       }
     </script>
 
@@ -26,7 +26,7 @@
 
       <button class="Pfp" onclick="location.href='Profile/char.html'">
         <div class="Profile">
-          <img src="input profile" alt="Profile">
+          <img src="../ButtonIcons/profile.png" alt="Profile">
         </div>
       </button>
 
@@ -35,17 +35,17 @@
       </div>
     </div>
 
-    <button class="TaskButt" id="TaskButt"><img src="../ButtonIcons/LogIn.png"></button>
+    <button class="TaskButt" id="TaskButt"><img src="../ButtonIcons/schedule.png"></button>
     <div class="sidepnnl" id="sidepnnl">
       <button id="close-sidebar" class="closebutt"><img src="../ButtonIcons/close.png"></button>
       <ul class="List">
-        <li><button class="mon" onclick="location.href='TaskDay/monday/mon.html'"><img src = "TaskDay/Buttons/MONDAY.png"></button></li>
-        <li><button class="tue" onclick="location.href='TaskDay/tuesday/tue.html'"><img src = "TaskDay/Buttons/TUESDAY.png"></button></li>
-        <li><button class="wed" onclick="location.href='TaskDay/wednesday/wed.html'"><img src = "TaskDay/Buttons/WEDNESDAY.png"></button></li>
-        <li><button class="thurs" onclick="location.href='TaskDay/thurdays/thurs.html'"><img src = "TaskDay/Buttons/THURSDAY.png"></button></li>
-        <li><button class="fri" onclick="location.href='TaskDay/friday/fri.html'"><img src = "TaskDay/Buttons/FRIDAY.png"></button></li>
-        <li><button class="sat" onclick="location.href='TaskDay/saturday/sat.html'"><img src = "TaskDay/Buttons/SATURDAY.png"></button></li>
-        <li><button class="sun" onclick="location.href='TaskDay/sunday/sun.html'"><img src = "TaskDay/Buttons/SUNDAY.png"></button></li>
+        <li><button class="mon" onclick="location.href='TaskDay/monday/mon.html'"><img src = "/Homepage/TaskDay/Buttons/MONDAY.png"></button></li>
+        <li><button class="tue" onclick="location.href='TaskDay/tuesday/tue.html'"><img src = "/Homepage/TaskDay/Buttons/TUESDAY.png"></button></li>
+        <li><button class="wed" onclick="location.href='TaskDay/wednesday/wed.html'"><img src = "/Homepage/TaskDay/Buttons/WEDNESDAY.png"></button></li>
+        <li><button class="thurs" onclick="location.href='TaskDay/thurdays/thurs.html'"><img src = "/Homepage/TaskDay/Buttons/THURSDAY.png"></button></li>
+        <li><button class="fri" onclick="location.href='TaskDay/friday/fri.html'"><img src = "/Homepage/TaskDay/Buttons/FRIDAY.png"></button></li>
+        <li><button class="sat" onclick="location.href='TaskDay/saturday/sat.html'"><img src = "/Homepage/TaskDay/Buttons/SATURDAY.png"></button></li>
+        <li><button class="sun" onclick="location.href='TaskDay/sunday/sun.html'"><img src = "/Homepage/TaskDay/Buttons/SUNDAY.png"></button></li>
       </ul>
     </div>
 
@@ -59,7 +59,4 @@
   <script src="taskCompiler.js"></script>
 </body>
 
-
 </html>
-
-
