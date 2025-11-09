@@ -18,6 +18,8 @@ body {
 }
 
 
+
+
 .TaskButt {
   width: 120px;
   height: 40px;
@@ -171,6 +173,7 @@ h1:hover {
 }
 
 .mon img {
+  margin-top: 35px;
   height: 225px;
   image-rendering: pixelated;
   margin-left: -45%;
@@ -272,7 +275,8 @@ h1:hover {
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: scale(1.10);
+  background-color: #eabe59;
 }
 
 
@@ -287,9 +291,6 @@ button {
   transition: 0.3s;
 }
 
-button:hover {
-  background-color: #eabe59;
-}
 
 /*  
  #FFDBBB
@@ -338,23 +339,23 @@ a:active {
 /* --- Styles for Task Compilation Area --- */
 
 .Task {
-    /* Center the task compilation area */
-    position: absolute;
-    margin-top: 350px; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    /*content box */
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 3px solid #715714;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Center the task compilation area */
+  position: absolute;
+  margin-top: 350px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    height: auto; 
-    max-height: 45vh; 
-    width: 750px;
-    overflow-y: auto;
+  /*content box */
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 3px solid #715714;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  height: auto;
+  max-height: 45vh;
+  width: 750px;
+  overflow-y: auto;
 }
 
 .Task::-webkit-scrollbar {
@@ -362,54 +363,55 @@ a:active {
 }
 
 .Task h2 {
-    text-align: center;
-    color: #db7500;
-    margin-top: 0;
-    border-bottom: 2px solid #eabe59;
-    padding-bottom: 10px;
+  text-align: center;
+  color: #db7500;
+  margin-top: 0;
+  border-bottom: 2px solid #eabe59;
+  padding-bottom: 10px;
 }
 
 .compiled-task-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .compiled-task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 5px;
-    border-bottom: 1px dashed #eabe59;
-    color: #715714;
-    font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5px;
+  border-bottom: 1px dashed #eabe59;
+  color: #715714;
+  font-size: 18px;
 }
 
 .compiled-task-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .task-day {
-    font-weight: bold;
-    min-width: 100px;
-    margin-right: 15px;
-    color: #f6ac3d;
+  font-weight: bold;
+  min-width: 100px;
+  margin-right: 15px;
+  color: #f6ac3d;
 }
 
 .task-text {
-    flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .complete-btn {
-    background-color: #f6ac3d;
-    color: white;
-    padding: 5px 10px;
-    font-size: 14px;
-    margin-left: 10px;
-    transition: background-color 0.3s;
+  background-color: #f6ac3d;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+  transition: ease 0.3s;
+
 }
 
 .complete-btn:hover {
-    background-color: #db7500;
+  background-color: #db7500;
 }
-
