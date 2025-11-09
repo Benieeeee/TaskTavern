@@ -18,14 +18,12 @@ body {
 }
 
 
-
-
 .TaskButt {
-  width: 140px;
+  width: 120px;
   height: 40px;
   position: fixed;
-  left: 15px;
-  top: 25px;
+  left: 45px;
+  top: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,6 +32,41 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
+  background-color: transparent;
+}
+
+.TaskButt img {
+  height: 175px;
+  image-rendering: pixelated;
+  position: absolute;
+
+
+}
+ 
+.TaskButt button:hover {
+  background-color: transparent;
+}
+
+.closebutt {
+  top: 35px;
+  left: 30px;
+  bottom: 50px;
+  width: 77px;
+  height: 67px;
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closebutt img {
+  height: 145px;
+}
+
+.closebutt button:hover {
+  background-color: transparent;
 }
 
 /* futher fixation */
@@ -64,9 +97,9 @@ h1 {
   transition: 0.3s ease;
 }
 
-h1 img{
+h1 img {
   height: 150px;
-  image-rendering: pixelated; 
+  image-rendering: pixelated;
 }
 
 h1:hover {
@@ -80,10 +113,16 @@ h1:hover {
   right: 29px;
   margin-top: 20px;
   margin-bottom: 25px;
-  height: fit-content;
+  height: 45px;
   width: fit-content;
+  overflow: hidden;
+  color: #3f2304;
 }
-
+ .Profile img {
+    height: 95px;
+    margin-left: -75px;
+    margin-top: -33px;
+ }
 
 .sidepnnl::-webkit-scrollbar {
   display: none;
