@@ -42,12 +42,16 @@ h1 {
   right: 29px;
   margin-top: 20px;
   margin-bottom: 25px;
-  height: fit-content;
+  height: 45px;
   width: fit-content;
-  background-color: ;
-
+  overflow: hidden;
+  color: #3f2304;
 }
-
+ .Profile img {
+    height: 95px;
+    margin-left: -75px;
+    margin-top: -33px;
+ }
 .Day {
   position: relative;
   margin-left: 23%;
