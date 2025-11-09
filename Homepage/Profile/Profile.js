@@ -1,80 +1,103 @@
-const buttons = document.querySelectorAll(".collapsible");
-const contents = document.querySelectorAll(".content");
+document.addEventListener("DOMContentLoaded", () => {
+  const clothingContainer = document.getElementById("characterDisplay");
+  const btnMale = document.getElementById("btnMale");
+  const btnFemale = document.getElementById("btnFemale");
+  const usernameInput = document.getElementById("usernameInput");
+  const nameDisplay = document.getElementById("charNameDisplay");
 
-buttons.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
+  const layers = { base: null, hair: null, shirt: null, pants: null, accessory: null };
 
-        // If clicked section is already open → close it
-        if (contents[index].style.maxHeight) {
-            contents[index].style.maxHeight = null;
-            buttons.forEach(b => b.classList.remove("hiddenFade"));
-            return;
-        }
+  function clearCharacter() {
+    clothingContainer.innerHTML = "";
+    Object.keys(layers).forEach(k => layers[k] = null);
+  }
 
+  function setBase(gender) {
+    clearCharacter();
+    const base = document.createElement("img");
+    base.src = gender === "male" ? "../Customization/Body M.png" : "../Customization/Body F.png";
+    base.className = "base";
+    clothingContainer.appendChild(base);
+    layers.base = base;
+    localStorage.setItem("gender", gender);
+    saveCharacter();
+  }
 
-        contents.forEach(c => c.style.maxHeight = null);
+  function addLayer(type, src) {
+    if (layers[type]) layers[type].remove();
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = type;
+    clothingContainer.appendChild(img);
+    layers[type] = img;
+    saveCharacter();
+  }
 
-        // Show only this one
-        contents[index].style.maxHeight = contents[index].scrollHeight + "px";
+  btnMale.onclick = () => setBase("male");
+  btnFemale.onclick = () => setBase("female");
 
-        // Fade out other buttons
-        buttons.forEach((b, i) => {
-            if (i !== index) b.classList.add("hiddenFade");
-        });
-
-        // Keep this one visible
-        btn.classList.remove("hiddenFade");
+  document.querySelectorAll(".collapsible").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const content = this.nextElementSibling;
+      content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
     });
+  });
+
+  document.querySelectorAll(".content button img").forEach(img => {
+    img.parentElement.addEventListener("click", () => {
+      const src = img.getAttribute("src");
+      const type = detectType(src);
+      addLayer(type, src);
+    });
+  });
+
+  function detectType(src) {
+    if (src.includes("Head")) return "hair";
+    if (src.includes("Clothing")) return "shirt";
+    if (src.includes("Pants")) return "pants";
+  }
+
+  function saveCharacter() {
+    const data = {
+      username: usernameInput.value,
+      gender: localStorage.getItem("gender"),
+      hair: layers.hair?.src || null,
+      shirt: layers.shirt?.src || null,
+      pants: layers.pants?.src || null,
+    };
+    localStorage.setItem("characterData", JSON.stringify(data));
+  }
+
+  function loadCharacter() {
+    const data = JSON.parse(localStorage.getItem("characterData") || "{}");
+    if (data.username) usernameInput.value = data.username;
+    if (data.gender) setBase(data.gender);
+    if (data.hair) addLayer("hair", data.hair);
+    if (data.shirt) addLayer("shirt", data.shirt);
+    if (data.pants) addLayer("pants", data.pants);
+    if (data.accessory) addLayer("accessory", data.accessory);
+    updateName();
+  }
+
+  usernameInput.addEventListener("input", updateName);
+  function updateName() {
+    nameDisplay.textContent = usernameInput.value || "Username :3";
+    saveCharacter();
+  }
+
+  document.getElementById("saveCharacterBtn").onclick = () => {
+    saveCharacter();
+    alert("✅ Character saved!");
+  };
+
+  document.getElementById("resetCharacterBtn").onclick = () => {
+    if (confirm("Reset character?")) {
+      localStorage.removeItem("characterData");
+      clearCharacter();
+      usernameInput.value = "";
+      nameDisplay.textContent = "Username :3";
+    }
+  };
+
+  loadCharacter();
 });
-
-
-const button = document.getElementById('btnmale');
-const image = document.getElementById('Male');
-
-button.addEventListener('click', () => {
-    image.style.display = 'block'; 
-});
-
-// Load saved data on page open
-window.onload = function () {
-    document.getElementById("usernameInput").value = localStorage.getItem("username") || "";
-    document.getElementById("bodyLayer").src = localStorage.getItem("body") || "../Customization/Body M.png";
-    document.getElementById("hairLayer").src = localStorage.getItem("hair") || "";
-    document.getElementById("shirtLayer").src = localStorage.getItem("shirt") || "";
-    document.getElementById("pantsLayer").src = localStorage.getItem("pants") || "";
-};
-
-// Save username
-document.getElementById("usernameInput").addEventListener("input", function () {
-    localStorage.setItem("username", this.value);
-});
-
-// Male button
-document.getElementById("btnMale").addEventListener("click", function () {
-    localStorage.setItem("body", "../Customization/Body M.png");
-    document.getElementById("bodyLayer").src = "../Customization/Body M.png";
-});
-
-// Female button
-document.getElementById("btnFemale").addEventListener("click", function () {
-    localStorage.setItem("body", "../Customization/Body F.png");
-    document.getElementById("bodyLayer").src = "../Customization/Body F.png";
-});
-
-// When selecting hairstyle
-function selectHair(imgPath) {
-    localStorage.setItem("hair", imgPath);
-    document.getElementById("hairLayer").src = imgPath;
-}
-
-// When selecting shirt
-function selectShirt(imgPath) {
-    localStorage.setItem("shirt", imgPath);
-    document.getElementById("shirtLayer").src = imgPath;
-}
-
-// When selecting pants
-function selectPants(imgPath) {
-    localStorage.setItem("pants", imgPath);
-    document.getElementById("pantsLayer").src = imgPath;
-}

@@ -99,12 +99,18 @@ input:focus {
     right: 3%;
     width: 150px;
     height: 100px;
-    background-color: #caac66;
+    background-color: #eabe59;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
+.Shop img {
+    height: 150px;
+    margin-left: -5%;
+    image-rendering: pixelated;
+}
 
 .UI {
     display: flex;
@@ -146,16 +152,17 @@ input:focus {
 
 
 .clothing {
-    position: absolute;
+    position: relative;
     background-color: #eabe59;
     height: 450px;
     width: 300px;
     left: 25px;
     display: flex;
-    margin-bottom: 10%;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
+
 
 
 
@@ -237,6 +244,15 @@ input:focus {
     transform: scale(1.05);
 }
 
+.collapsible button {
+    transition: ease 0.5s;
+    cursor: pointer;
+}
+
+.collapsible button:hover {
+    transform: scale(1.10);
+}
+
 button {
     background-color: #db7500;
     color: #fff7df;
@@ -287,4 +303,93 @@ a:active {
     to {
         opacity: 1;
     }
+}
+
+#charNameDisplay {
+    position: absolute;
+    left: 65px;
+    bottom: 90px;
+    max-width: 150px;
+    font-size: 20px;
+    color: #fff7df;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.char-controls {
+    position: absolute;
+    left: 85px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.char-controls button {
+    height: 55px;
+    background-color: #db7500;
+    color: #fff7df;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.char-controls button:hover {
+    transform: scale(1.1);
+}
+
+.clothing {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #eabe59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Character images */
+.clothing img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated;
+}
+
+/* Z-index order */
+.base {
+    height: 90%;
+    z-index: 1;
+}
+
+.pants {
+    height: 25%;
+    position: absolute;
+    margin-top: 105px;
+    z-index: 2;
+}
+
+.shirt {
+    height: 30%;
+    position: absolute;
+    margin-top: 5px;
+    z-index: 3;
+}
+
+.hair {
+    height: 25%;
+    position: absolute;
+    margin-top: -125px;
+    z-index: 4;
+}
+
+.accessory {
+    z-index: 5;
 }
