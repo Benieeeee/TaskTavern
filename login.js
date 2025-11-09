@@ -1,6 +1,6 @@
 
 const users = [];
-for (let i = 1; i <= 30; i++) {
+for (let i = 1; i <= 70; i++) {
   users.push({ username: `Student${i}`, password: "Letran400" });
 }
 
