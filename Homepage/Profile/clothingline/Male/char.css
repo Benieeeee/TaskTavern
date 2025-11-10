@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+Body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../../../../WebBackground/3.png);
+    background-size: cover;
+    background-color: #3f2304;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+/* New: Styles for top controls (Username only) */
+.controls-top {
+    position: absolute;
+    top: 50px;
+    /* Adjusted to be higher without gender buttons */
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFDBBB;
+    z-index: 10;
+}
+
+.controls-top h2 {
+    margin-bottom: 10px;
+}
+
+.controls-top input {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.controls-bottom {
+    position: absolute;
+    top: 750px;
+    left: 8%;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+/* Remaining CSS is largely the same, ensuring layers stack */
+
+.charbox {
+    margin-top: 55px;
+    /* Adjusted margin to fit the controls better */
+    position: absolute;
+    left: 5%;
+    height: 650px;
+    width: 390px;
+    margin-bottom: 15px;
+    background-color: #eabe59;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 5%;
+    border: 3px solid #715714;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Crucial: Styling for layered images within .charbox */
+/* char.css adjustments */
+
+/* Keep .charbox relative for positioning */
+.charbox {
+    /* ... (rest of charbox styles) */
+    position: relative;
+    /* ... */
+}
+
+/* Crucial: Only the base image should define the full size */
+.charbox .base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 650px;
+    image-rendering: pixelated;
+    z-index: 1;
+}
+
+.charbox .pants {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 35%;
+    image-rendering: pixelated;
+}
+
+.charbox .shirt {
+    position: absolute;
+    top: 210px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 40%;
+    image-rendering: pixelated;
+}
+
+.charbox .hat {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 30%;
+    image-rendering: pixelated;
+}
+
+.charbox .hat .clothing-btn h2 {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 15%;
+    image-rendering: pixelated;
+
+}
+
+/* Ensure z-index is still set for layering */
+.pants {
+    z-index: 2;
+}
+
+.shirt {
+    z-index: 3;
+}
+
+.hat {
+    z-index: 4;
+}
+
+.acceso {
+    background-color: #eabe59;
+    width: 1050px;
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    border-radius: 5%;
+    height: 650px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    border: 3px solid #715714;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.acceso h1 {
+    color: #3f2304;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.acceso img {
+    height: 80px;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
+.hats,
+.shirts,
+.pant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hats ul,
+.shirts ul,
+.pant ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hats li,
+.shirts li,
+.pant li {
+    margin-bottom: 10px;
+}
+
+.controls-bottom button {
+    background-color: #f6ac3d;
+    border: 2px solid #db7500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 75px;
+    align-items: center;
+    transition: background-color 0.1s;
+}
+
+button {
+    background-color: #f6ac3d;
+    border: 2px solid #db7500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 95px;
+    align-items: center;
+    transition: background-color 0.1s;
+}
+
+button:hover {
+    background-color: #db7500;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

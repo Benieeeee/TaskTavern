@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+Body {
+
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../../WebBackground/3.png);
+    background-size: cover;
+    background-color: #3f2304;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    height: 100vh;
+    width: 100vh;
+    margin: 0;
+
+}
+
+
+
+.Butt {
+    margin-top: 10%;
+    margin-bottom: 25%;
+    position: absolute;
+    left: 30%;
+}
+
+.Butt button {
+    gap: 25%;
+    margin: 30PX;
+    cursor: pointer;
+    transition: ease 0.3s;
+    background-color: transparent;
+    border: none;
+    box-shadow: #3f2304;
+}
+
+.Butt button:hover {
+    transform: scale(1.05);
+}
+
+.Butt img {
+    height: 550px;
+    image-rendering: pixelated;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 52%;
+}
+
+.logo img {
+    height: 185px;
+    image-rendering: pixelated;
+}
+
+.title {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+}
+
+.title img {
+    image-rendering: pixelated;
+    height: 175px;
+}
+
+.bar {
+    background-color: #f8d27b;
+    height: 85px;
+    width: 385px;
+    position: absolute;
+    right: 15px;
+    top: 35px;
+    border-radius: 10%;
+    overflow: hidden;
+}
+
+.Shop {
+    position: absolute;
+    right: 15px;
+    top: -35px;
+    background-color: white;
+    border: none;
+    width: 105px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.Shop img {
+    position: absolute;
+    top: 15px;
+    height: 125px;
+    image-rendering: pixelated;
+}
+
+.Shop button {
+    transition: ease 0.3;
+    cursor: pointer;
+    width: 350px;
+}
+
+.Shop button:hover {
+    transform: scale(1.05);
+}
+
+
+.profile {
+    position: absolute;
+    right: 125px;
+     top: -35px;
+     width: 105px;
+    background-color: transparent;
+    border-radius: 5%;
+    z-index: 1;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile img {
+    image-rendering: pixelated;
+    height: 150px;
+}
+
+.profile button {
+    transition: ease 0.3;
+    width: 55px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.profile button:hover{
+    transform: scale(1.05);
+}
+
+
+button {
+    transition: ease 0.3;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}

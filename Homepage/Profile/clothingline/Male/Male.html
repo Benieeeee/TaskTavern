@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="char.css" />
+    <title>TaskTavern Profile</title>
+    <link rel="icon" type="img/jpg" href="../../logo.png">
+</head>
+
+<body>
+
+    <script>
+        if (!sessionStorage.getItem("loggedIn")) {
+            alert("Access denied. Please log in first.");
+            window.location.href = "../../index.html";
+        }
+    </script>
+
+    <a class="Return" href="../../../Home.html">Return</a>
+
+    <div class="controls-top">
+        <input type="text" id="usernameInput" placeholder="Enter Username">
+        <h2 id="charNameDisplay">Username :3</h2>
+    </div>
+
+    <div class="charbox" id="characterDisplay">
+        </div>
+
+    <div class="controls-bottom">
+        <button id="saveCharacterBtn">Save Character</button>
+        <button id="resetCharacterBtn">Reset Character</button>
+    </div>
+
+    <div class="acceso">
+        <div class="hats">
+            <h1>--HATS--</h1>
+            <ul>
+                <li><button class="clothing-btn h1"><img src="../../../Customization/Head Accesories/average.png"></button></li>
+                <li><button class="clothing-btn h2"><img src="../../../Customization/Head Accesories/goojoodoq.png"></button></li>
+                <li><button class="clothing-btn h3"><img src="../../../Customization/Head Accesories/steve.png"></button></li>
+                <li><button class="clothing-btn h4"><img src="../../../Customization/Head Accesories/thorns.png"></button></li>
+                <li><button class="clothing-btn h5"><img src="../../../Customization/Head Accesories/daredevil.png"></button></li>
+            </ul>
+        </div>
+
+        <div class="shirts">
+            <h1>--SHIRTS--</h1>
+            <ul>
+                <li><button class="clothing-btn s1"><img src="../../../Customization/Clothing/bluedude.png"></button></li>
+                <li><button class="clothing-btn s2"><img src="../../../Customization/Clothing/cloack.png"></button></li>
+                <li><button class="clothing-btn s3"><img src="../../../Customization/Clothing/purpleguy.png"></button></li>
+                <li><button class="clothing-btn s4"><img src="../../../Customization/Clothing/spamton.png"></button></li>
+                <li><button class="clothing-btn s5"><img src="../../../Customization/Clothing/zestyass.png"></button></li>
+            </ul>
+        </div>
+
+        <div class="pant">
+            <h1>--PANTS--</h1>
+            <ul>
+                <li><button class="clothing-btn p1"><img src="../../../Customization/Pants/incognito.png"></button></li>
+                <li><button class="clothing-btn p2"><img src="../../../Customization/Pants/joker.png"></button></li>
+                <li><button class="clothing-btn p3"><img src="../../../Customization/Pants/batman.png"></button></li>
+                <li><button class="clothing-btn p4"><img src="../../../Customization/Pants/lightmode.png"></button></li>
+                <li><button class="clothing-btn p5"><img src="../../../Customization/Pants/jokerincognito.png"></button></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="char.js"></script>
+</body>
+
+</html>
