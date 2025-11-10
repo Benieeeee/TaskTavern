@@ -4,80 +4,67 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="char.css"/>
-    <title>TaskTavern Profile</title>
+    <link rel="stylesheet" href="char.css" />
+    <title>TaskTavern Profile (Female)</title>
     <link rel="icon" type="img/jpg" href="../../logo.png">
 </head>
 
 <body>
 
     <script>
-      if (!sessionStorage.getItem("loggedIn")) {
-        alert("Access denied. Please log in first.");
-        window.location.href = "../../index.html";
-      }
+        if (!sessionStorage.getItem("loggedIn")) {
+            alert("Access denied. Please log in first.");
+            window.location.href = "../../../../../index.html";
+        }
     </script>
 
-    <a class="Return" href="../Home.html">Return</a>
+    <a class="Return" href="../../../Home.html">Return</a>
 
-    <div class="Char-Box">
-        <h1>TaskTavern</h1>
-
-        <div class="clothing" id="characterDisplay">
-            <!-- Character Layers Render Here -->
-        </div>
-
-        <input type="text" id="usernameInput" placeholder="Username :3">
-
-        <div class="menu">
-            <button class="collapsible">Hairstyle</button>
-            <div class="content">
-                <ul>
-                    <li><button><img src="../Customization/Head Accesories/average.png"></button></li>
-                    <li><button><img src="../Customization/Head Accesories/goojoodoq.png"></button></li>
-                    <li><button><img src="../Customization/Head Accesories/steve.png"></button></li>
-                    <li><button><img src="../Customization/Head Accesories/thorns.png"></button></li>
-                </ul>
-            </div>
-
-            <button class="collapsible">Shirts</button>
-            <div class="content">
-                <ul>
-                    <li><button><img src="../Customization/Clothing/bluedude.png"></button></li>
-                    <li><button><img src="../Customization/Clothing/purpleguy.png"></button></li>
-                    <li><button><img src="../Customization/Clothing/spamton.png"></button></li>
-                    <li><button><img src="../Customization/Clothing/cloack.png"></button></li>
-                    <li><button><img src="../Customization/Clothing/zestyass.png"></button></li>
-                </ul>
-            </div>
-
-            <button class="collapsible">Pants</button>
-            <div class="content">
-                <ul>
-                    <li><button><img src="../Customization/Pants/lightmode.png"></button></li>
-                    <li><button><img src="../Customization/Pants/batman.png"></button></li>
-                    <li><button><img src="../Customization/Pants/joker.png"></button></li>
-                    <li><button><img src="../Customization/Pants/incognito.png"></button></li>
-                    <li><button><img src="../Customization/Pants/jokerincognito.png"></button></li>
-                    
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="Butt">
-            <button id="btnMale">Male</button>
-            <button id="btnFemale">Female</button>
-        </div>
-
-        <div class="Shop">
-            <img src="../../ButtonIcons/Shop.png">
-        </div>
-
+    <div class="controls-top">
+        <input type="text" id="usernameInput" placeholder="Enter Username">
         <h2 id="charNameDisplay">Username :3</h2>
-        <div class="char-controls">
-            <button id="saveCharacterBtn">💾 Save</button>
-            <button id="resetCharacterBtn">🗑️ Reset</button>
+    </div>
+
+    <div class="charbox" id="characterDisplay">
+    </div>
+
+    <div class="controls-bottom">
+        <button id="saveCharacterBtn">Save Character</button>
+        <button id="resetCharacterBtn">Reset Character</button>
+    </div>
+
+    <div class="acceso">
+        <div class="hats">
+            <h1>--HATS--</h1>
+            <ul>
+                <li><button class="clothing-btn f-h1"><img src="../../../Customization/Female Head/Layer 26.png"></button></li>
+                <li><button class="clothing-btn f-h2"><img src="../../../Customization/Female Head/Layer 28.png"></button></li>
+                <li><button class="clothing-btn f-h3"><img src="../../../Customization/Female Head/Layer 30.png"></bhrutton></li>
+                <li><button class="clothing-btn f-h4"><img src="../../../Customization/Female Head/Layer 31.png"></button></li>
+                <li><button class="clothing-btn f-h5"><img src="../../../Customization/Female Head/Layer 32.png"></button></li>
+            </ul>
+        </div>
+
+        <div class="shirts">
+            <h1>--SHIRTS--</h1>
+            <ul>
+                <li><button class="clothing-btn f-s1"><img src="../../../Customization/Female Clothing/Layer 34.png"></button></li>
+                <li><button class="clothing-btn f-s2"><img src="../../../Customization/Female Clothing/Layer 36.png"></button></li>
+                <li><button class="clothing-btn f-s3"><img src="../../../Customization/Female Clothing/Layer 38.png"></button></li>
+                <li><button class="clothing-btn f-s4"><img src="../../../Customization/Female Clothing/Layer 40.png"></button></li>
+                <li><button class="clothing-btn f-s5"><img src="../../../Customization/Female Clothing/Layer 42.png"></button></li>
+            </ul>
+        </div>
+
+        <div class="pant">
+            <h1>--PANTS--</h1>
+            <ul>
+                <li><button class="clothing-btn f-p1"><img src="../../../Customization/female pants/Layer 43.png"></button></li>
+                <li><button class="clothing-btn f-p2"><img src="../../../Customization/female pants/Layer 45.png"></button></li>
+                <li><button class="clothing-btn f-p3"><img src="../../../Customization/female pants/Layer 47.png"></button></li>
+                <li><button class="clothing-btn f-p4"><img src="../../../Customization/female pants/Layer 49.png"></button></li>
+                <li><button class="clothing-btn f-p5"><img src="../../../Customization/female pants/Layer 51.png"></button></li>
+            </ul>
         </div>
     </div>
 

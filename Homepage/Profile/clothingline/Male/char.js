@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Removed references to gender buttons
     const clothingContainer = document.getElementById("characterDisplay");
-    // Removed btnMale and btnFemale
     const usernameInput = document.getElementById("usernameInput");
     const nameDisplay = document.getElementById("charNameDisplay");
-
     const layers = { base: null, hat: null, shirt: null, pants: null };
 
     function clearCharacter() {
@@ -12,38 +9,42 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.keys(layers).forEach(k => layers[k] = null);
     }
 
-    // 2. setBase is hardcoded to use "male" base only
     function setBase() {
         clearCharacter();
         const gender = "male"; // Locked to male
         const base = document.createElement("img");
-        // Only loads the Male body image
         base.src = "../../../Customization/Body M.png";
         base.className = "base";
         clothingContainer.appendChild(base);
         layers.base = base;
-        localStorage.setItem("gender", gender); // Still saves gender for data structure consistency
+        localStorage.setItem("gender", gender); 
         saveCharacter();
     }
 
-    function addLayer(type, src) {
+    // 🌟 UPDATED: Now accepts the specific class for individual positioning
+    function addLayer(type, src, specificClass) {
         if (layers[type]) layers[type].remove();
         const img = document.createElement("img");
         img.src = src;
-        img.className = type; 
+        
+        // This combines the general type class and the specific class
+        img.className = `${type} ${specificClass}`; 
+        
         clothingContainer.appendChild(img);
         layers[type] = img;
         saveCharacter();
     }
 
-    // 3. Removed button click handlers for gender selection
-
+    // 🌟 UPDATED: Extracts the specific class from the button
     document.querySelectorAll(".clothing-btn img").forEach(img => {
         img.parentElement.addEventListener("click", () => {
             const src = img.getAttribute("src");
+            // Gets the specific class (e.g., 'h1', 's2', 'p3')
+            const specificClass = img.parentElement.classList[1]; 
             const type = detectType(src);
-            if (type) {
-                addLayer(type, src);
+            
+            if (type && specificClass) {
+                addLayer(type, src, specificClass);
             }
         });
     });
@@ -58,7 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function saveCharacter() {
         const data = {
             username: usernameInput.value,
-            gender: localStorage.getItem("gender") || "male", // Default to male
+            gender: localStorage.getItem("gender") || "male", 
+            // NOTE: We need to save the specific class to load it correctly later
+            hatClass: layers.hat?.classList[1] || null,
+            shirtClass: layers.shirt?.classList[1] || null,
+            pantsClass: layers.pants?.classList[1] || null,
             hat: layers.hat?.src || null,
             shirt: layers.shirt?.src || null,
             pants: layers.pants?.src || null,
@@ -69,12 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadCharacter() {
         const data = JSON.parse(localStorage.getItem("characterData") || "{}");
         if (data.username) usernameInput.value = data.username;
-        // setBase is called without gender argument, it defaults to male
         setBase(); 
         
-        if (data.hat) addLayer("hat", data.hat);
-        if (data.shirt) addLayer("shirt", data.shirt);
-        if (data.pants) addLayer("pants", data.pants);
+        // Load layers using the saved class names
+        if (data.hat && data.hatClass) addLayer("hat", data.hat, data.hatClass);
+        if (data.shirt && data.shirtClass) addLayer("shirt", data.shirt, data.shirtClass);
+        if (data.pants && data.pantsClass) addLayer("pants", data.pants, data.pantsClass);
         
         updateName();
     }
@@ -96,11 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
             clearCharacter();
             usernameInput.value = "";
             nameDisplay.textContent = "Username :3";
-            // Always set male base upon reset
             setBase();
         }
     };
 
-    // Load character on startup, which calls setBase() internally
     loadCharacter();
 });
