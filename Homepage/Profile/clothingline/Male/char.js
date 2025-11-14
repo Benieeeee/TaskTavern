@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    const currentUser = sessionStorage.getItem("currentUser");
+    if (!currentUser) return; // safety
+
     const clothingContainer = document.getElementById("characterDisplay");
     const usernameInput = document.getElementById("usernameInput");
     const nameDisplay = document.getElementById("charNameDisplay");
@@ -6,46 +10,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function clearCharacter() {
         clothingContainer.innerHTML = "";
-        Object.keys(layers).forEach(k => layers[k] = null);
+        for (let key in layers) layers[key] = null;
     }
 
     function setBase() {
         clearCharacter();
-        const gender = "male"; // Locked to male
         const base = document.createElement("img");
         base.src = "../../../Customization/Body M.png";
         base.className = "base";
         clothingContainer.appendChild(base);
         layers.base = base;
-        localStorage.setItem("gender", gender); 
         saveCharacter();
     }
 
-    // 🌟 UPDATED: Now accepts the specific class for individual positioning
     function addLayer(type, src, specificClass) {
         if (layers[type]) layers[type].remove();
         const img = document.createElement("img");
         img.src = src;
-        
-        // This combines the general type class and the specific class
-        img.className = `${type} ${specificClass}`; 
-        
+        img.className = `${type} ${specificClass}`;
         clothingContainer.appendChild(img);
         layers[type] = img;
         saveCharacter();
     }
 
-    // 🌟 UPDATED: Extracts the specific class from the button
     document.querySelectorAll(".clothing-btn img").forEach(img => {
         img.parentElement.addEventListener("click", () => {
-            const src = img.getAttribute("src");
-            // Gets the specific class (e.g., 'h1', 's2', 'p3')
-            const specificClass = img.parentElement.classList[1]; 
+            const src = img.src;
+            const specificClass = img.parentElement.classList[1];
             const type = detectType(src);
-            
-            if (type && specificClass) {
-                addLayer(type, src, specificClass);
-            }
+            if (type) addLayer(type, src, specificClass);
         });
     });
 
@@ -56,53 +49,49 @@ document.addEventListener("DOMContentLoaded", () => {
         return null;
     }
 
+    /** SAVE PER USER **/
     function saveCharacter() {
         const data = {
-            username: usernameInput.value,
-            gender: localStorage.getItem("gender") || "male", 
-            // NOTE: We need to save the specific class to load it correctly later
-            hatClass: layers.hat?.classList[1] || null,
-            shirtClass: layers.shirt?.classList[1] || null,
-            pantsClass: layers.pants?.classList[1] || null,
+            username: usernameInput.value.trim(),
             hat: layers.hat?.src || null,
             shirt: layers.shirt?.src || null,
             pants: layers.pants?.src || null,
+            hatClass: layers.hat?.classList[1] || null,
+            shirtClass: layers.shirt?.classList[1] || null,
+            pantsClass: layers.pants?.classList[1] || null,
         };
-        localStorage.setItem("characterData", JSON.stringify(data));
+        localStorage.setItem(currentUser + "_characterData", JSON.stringify(data));
     }
 
+    /** LOAD PER USER **/
     function loadCharacter() {
-        const data = JSON.parse(localStorage.getItem("characterData") || "{}");
-        if (data.username) usernameInput.value = data.username;
-        setBase(); 
-        
-        // Load layers using the saved class names
-        if (data.hat && data.hatClass) addLayer("hat", data.hat, data.hatClass);
-        if (data.shirt && data.shirtClass) addLayer("shirt", data.shirt, data.shirtClass);
-        if (data.pants && data.pantsClass) addLayer("pants", data.pants, data.pantsClass);
-        
-        updateName();
+        const data = JSON.parse(localStorage.getItem(currentUser + "_characterData") || "{}");
+
+        usernameInput.value = data.username || "";
+        nameDisplay.textContent = data.username || "Username :3";
+
+        setBase();
+
+        if (data.hat) addLayer("hat", data.hat, data.hatClass);
+        if (data.shirt) addLayer("shirt", data.shirt, data.shirtClass);
+        if (data.pants) addLayer("pants", data.pants, data.pantsClass);
     }
 
-    usernameInput.addEventListener("input", updateName);
-    function updateName() {
+    usernameInput.addEventListener("input", () => {
         nameDisplay.textContent = usernameInput.value || "Username :3";
         saveCharacter();
-    }
+    });
 
     document.getElementById("saveCharacterBtn").onclick = () => {
         saveCharacter();
-        alert("✅ Character saved!");
+        alert("Character saved!");
     };
 
     document.getElementById("resetCharacterBtn").onclick = () => {
-        if (confirm("Reset character?")) {
-            localStorage.removeItem("characterData");
-            clearCharacter();
-            usernameInput.value = "";
-            nameDisplay.textContent = "Username :3";
-            setBase();
-        }
+        localStorage.removeItem(currentUser + "_characterData");
+        usernameInput.value = "";
+        nameDisplay.textContent = "Username :3";
+        setBase();
     };
 
     loadCharacter();

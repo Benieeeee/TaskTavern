@@ -25,16 +25,16 @@ function saveUserData() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Get the span inside the button
+    const currentUser = sessionStorage.getItem("currentUser");
+    if (!currentUser) return;
+
     const usernameSpan = document.querySelector("#displayNameBtn .btn-text");
+    if (!usernameSpan) return;
 
-    if (!usernameSpan) return; // safety check
+    const data = JSON.parse(localStorage.getItem(currentUser + "_characterData") || "{}");
+    const username = data.username || "Username :3";
 
-    // Retrieve character data from localStorage
-    const characterData = JSON.parse(localStorage.getItem("characterData") || "{}");
-    const username = characterData.username || "Username :3";
-
-    // Set the text inside the span
     usernameSpan.textContent = username;
 });
+
 

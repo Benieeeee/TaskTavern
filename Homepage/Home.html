@@ -130,7 +130,6 @@
             const box = document.createElement("div");
             box.className = "total-points-box";
             box.innerHTML = `<h3>Total Points</h3><p id="totalPointsDisplay">${totalPoints}</p>`;
-            // insert above the task list (first child after close button)
             const firstUl = side.querySelector(".List");
             side.insertBefore(box, firstUl);
           }
@@ -144,6 +143,8 @@
       }
     })();
   </script>
+
+
 
 
 </body>

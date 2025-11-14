@@ -1,11 +1,8 @@
-
-const DAY_NAME = "Wednesday";          
-const SHORT = "wed";                    
+const DAY_NAME = "Wednesday";             
+const SHORT = "wed";                     
 const currentUser = sessionStorage.getItem("currentUser");
 
-
 if (!currentUser) window.location.href = "../../../index.html";
-
 
 const DAY_PREFIX = currentUser + "_" + SHORT;
 const MASTER_KEY = currentUser + "_allTasks";
@@ -29,11 +26,26 @@ function addTask() {
   const taskName = document.getElementById("taskName").value.trim();
   const taskPoints = parseInt(document.getElementById("taskPoints").value);
 
-  if (!taskName || isNaN(taskPoints) || taskPoints <= 0) {
-    alert("Please enter a valid task and points value.");
+  if (!taskName || isNaN(taskPoints) || taskPoints < 1) {
+    alert("Invalid task or points.");
     return;
   }
 
+  // Funny warnings, but DO NOT return yet
+  if (taskPoints > 10) alert("Thou shall not input an in-game currency that holds a value surpassing the number of 10.");
+  if (taskPoints > 50) alert("Your Greed Sickens me");
+  if (taskPoints > 100) alert("Seriously");
+  if (taskPoints > 200) alert("you need to stop");
+  if (taskPoints > 500) alert("...");
+  if (taskPoints > 700) alert("why do i even bother...");
+  if (taskPoints > 1000) alert("i give up...");
+
+
+  if (taskPoints > 10) {
+    return;
+  }
+
+  
   const newTask = {
     id: Date.now(),
     name: taskName,
@@ -49,6 +61,7 @@ function addTask() {
   saveData();
   renderTasks();
 }
+
 
 function completeTask(id) {
   const task = tasks.find(t => t.id === id);
@@ -118,3 +131,5 @@ function syncTasksToHomeCompilation() {
 
   localStorage.setItem(MASTER_KEY, JSON.stringify(master));
 }
+
+
