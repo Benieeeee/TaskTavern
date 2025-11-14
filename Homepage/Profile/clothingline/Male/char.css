@@ -162,6 +162,170 @@ Body {
     border: 3px solid #715714;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+}* {
+    margin: 0;
+    padding: 0;
+}
+
+Body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../../../../WebBackground/3.png);
+    background-size: cover;
+    background-color: #3f2304;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+#Return {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    margin-top:-5px;
+    margin-left: -60px;
+    height: 30px;
+    transition: ease 0.3s;
+}
+
+#Return button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    border-radius: 15px;
+    justify-content: center;
+    width: 20px;
+    align-items: center;
+    transition: ease 0.3s;
+}
+
+
+
+#Return img {
+    height: 150px;
+    object-fit: contain; 
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.controls-top {
+    position: absolute;
+    top: 95px;
+    right: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffd34e;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+#saveCharacterBtn,
+#resetCharacterBtn,
+ img {
+    height: 200px;
+    object-fit: contain; 
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+#charNameDisplay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+    top: 20px;
+    left: -350px;
+    background-color: rgba(113, 82, 10, 0.844); /* semi-transparent */
+    height: 55px;
+    width: 250px;
+    border-radius: 15px;
+}
+
+
+#charNameDisplay::-webkit-scrollbar {
+  display: none;
+}
+
+.controls-top h2 {
+    margin-bottom: 10px;
+}
+
+.controls-top input {
+    height: 30px;
+    width: 400px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.controls-bottom {
+    position: absolute;
+    top: 225px;
+    right: 45%;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.controls-bottom button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    border-radius: 15px;
+    justify-content: center;
+    width: 150px;
+    height: 0px;
+    align-items: center;
+    transition: ease 0.3s;
+}
+
+.controls-bottom button:hover {
+    transform: scale(1.05);
+}
+
+
+.clothing-btn {
+    background-color: #f6ac3d;
+    border: 2px solid #db7500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 95px;
+    align-items: center;
+    transition: background-color 0.1s;
+    margin-bottom: 10px; 
+}
+
+.clothing-btn:hover {
+    background-color: #db7500;
+}
+
+.charbox {
+    margin-top: 25px;
+    position: absolute;
+    left: 5%;
+    height: 650px;
+    width: 390px;
+    margin-bottom: 15px;
+    background-color: #eabe59;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 5%;
+    border: 3px solid #715714;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
 /* Crucial: Styling for layered images within .charbox */
