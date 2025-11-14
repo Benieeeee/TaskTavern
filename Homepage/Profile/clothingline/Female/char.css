@@ -18,15 +18,75 @@ Body {
     position: relative;
 }
 
+#Return {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    margin-top:-5px;
+    margin-left: -60px;
+    height: 30px;
+    transition: ease 0.3s;
+}
+
+#Return button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    border-radius: 15px;
+    justify-content: center;
+    width: 20px;
+    align-items: center;
+    transition: ease 0.3s;
+}
+
+
+
+#Return img {
+    height: 150px;
+    object-fit: contain; 
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
 .controls-top {
     position: absolute;
-    top: 50px;
-    left: 5%;
+    top: 95px;
+    right: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #FFDBBB;
+    color: #ffd34e;
     z-index: 10;
+    border-radius: 10px;
+}
+
+#saveCharacterBtn,
+#resetCharacterBtn,
+ img {
+    height: 200px;
+    object-fit: contain; 
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+#charNameDisplay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+    top: 20px;
+    left: -350px;
+    background-color: rgba(113, 82, 10, 0.844); /* semi-transparent */
+    height: 55px;
+    width: 250px;
+    border-radius: 15px;
+}
+
+
+#charNameDisplay::-webkit-scrollbar {
+  display: none;
 }
 
 .controls-top h2 {
@@ -34,33 +94,42 @@ Body {
 }
 
 .controls-top input {
+    height: 30px;
+    width: 400px;
+    margin-right: 100px;
     margin-bottom: 10px;
     padding: 5px;
+    border-radius: 10px;
 }
 
 .controls-bottom {
     position: absolute;
-    top: 750px;
-    left: 8%;
+    top: 225px;
+    right: 45%;
     bottom: 10px;
     display: flex;
     gap: 10px;
-    z-index: 10;
+    margin-bottom: 10px;
 }
 
 .controls-bottom button {
-    background-color: #f6ac3d;
-    border: 2px solid #db7500;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     display: flex;
+    border-radius: 15px;
     justify-content: center;
     width: 150px;
-    height: 75px;
+    height: 0px;
     align-items: center;
-    transition: background-color 0.1s;
+    transition: ease 0.3s;
 }
 
-/* Standardized size for all clothing selection buttons */
+.controls-bottom button:hover {
+    transform: scale(1.05);
+}
+
+
 .clothing-btn {
     background-color: #f6ac3d;
     border: 2px solid #db7500;
@@ -71,7 +140,7 @@ Body {
     height: 95px;
     align-items: center;
     transition: background-color 0.1s;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
 }
 
 .clothing-btn:hover {
@@ -79,7 +148,7 @@ Body {
 }
 
 .charbox {
-    margin-top: 55px;
+    margin-top: 25px;
     position: absolute;
     left: 5%;
     height: 650px;
@@ -148,18 +217,24 @@ Body {
 
 .acceso {
     background-color: #eabe59;
-    width: 1050px;
+    width: 950px;
     position: absolute;
     bottom: 50px;
     right: 10px;
+    top: 445px;
     border-radius: 5%;
-    height: 650px;
+    height: 240px;
+    overflow: scroll;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: flex-start; 
     padding: 20px;
     border: 3px solid #715714;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.acceso::-webkit-scrollbar {
+  display: none;
 }
 
 .acceso h1 {
@@ -168,14 +243,13 @@ Body {
     text-align: center;
 }
 
-/* FIX FOR BUTTON RESCALING */
+
 .acceso img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: contain; 
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-    pointer-events: none;
 }
 
 .hats,
@@ -212,13 +286,6 @@ Body {
 }
 
 
-/* ================================================= */
-/* FEMALE CLOTHING POSITION ADJUSTMENTS (THE FIXES)  */
-/* ================================================= */
-
-/* --- FEMALE HATS (f-h1 to f-h5) --- */
-
-/* FIX: Corrected height from 300% to 25% */
 .charbox .f-h1 {
     top: 0px;
     height: 45%;
@@ -301,8 +368,3 @@ Body {
     bottom: 0px;
     height: 35%;
 }
-/* You will need to add/tweak rules for:
-   .charbox .f-h4, .charbox .f-h5, 
-   .charbox .f-s3, .charbox .f-s4, .charbox .f-s5, 
-   .charbox .f-p3, .charbox .f-p4, .charbox .f-p5 
-   until they are perfectly aligned. */

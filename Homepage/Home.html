@@ -24,11 +24,14 @@
 
     <div class="main">
 
-      <button class="Pfp" onclick="location.href='Profile/sex.html'">
+      <button class="Pfp" id="displayNameBtn" onclick="location.href='Profile/sex.html'">
         <div class="Profile">
           <img src="../ButtonIcons/profile.png" alt="Profile">
+          <span class="btn-text">Username</span>
         </div>
       </button>
+
+
 
       <div class="signout">
         <a href="../index.html">Log Out</a>
@@ -38,14 +41,27 @@
     <button class="TaskButt" id="TaskButt"><img src="../ButtonIcons/schedule.png"></button>
     <div class="sidepnnl" id="sidepnnl">
       <button id="close-sidebar" class="closebutt"><img src="../ButtonIcons/close.png"></button>
+
+      <div class="total-points-box">
+        <h3>Total Points</h3>
+        <p id="totalPointsDisplay">0</p>
+      </div>
+
       <ul class="List">
-        <li><button class="mon" onclick="location.href='TaskDay/monday/mon.html'"><img src = "TaskDay/Buttons/MONDAY.png"></button></li>
-        <li><button class="tue" onclick="location.href='TaskDay/tuesday/tue.html'"><img src = "TaskDay/Buttons/TUESDAY.png"></button></li>
-        <li><button class="wed" onclick="location.href='TaskDay/wednesday/wed.html'"><img src = "TaskDay/Buttons/WEDNESDAY.png"></button></li>
-        <li><button class="thurs" onclick="location.href='TaskDay/thurdays/thurs.html'"><img src = "TaskDay/Buttons/THURSDAY.png"></button></li>
-        <li><button class="fri" onclick="location.href='TaskDay/friday/fri.html'"><img src = "TaskDay/Buttons/FRIDAY.png"></button></li>
-        <li><button class="sat" onclick="location.href='TaskDay/saturday/sat.html'"><img src = "TaskDay/Buttons/SATURDAY.png"></button></li>
-        <li><button class="sun" onclick="location.href='TaskDay/sunday/sun.html'"><img src = "TaskDay/Buttons/SUNDAY.png"></button></li>
+        <li><button class="mon" onclick="location.href='TaskDay/monday/mon.html'"><img
+              src="TaskDay/Buttons/MONDAY.png"></button></li>
+        <li><button class="tue" onclick="location.href='TaskDay/tuesday/tue.html'"><img
+              src="TaskDay/Buttons/TUESDAY.png"></button></li>
+        <li><button class="wed" onclick="location.href='TaskDay/wednesday/wed.html'"><img
+              src="TaskDay/Buttons/WEDNESDAY.png"></button></li>
+        <li><button class="thurs" onclick="location.href='TaskDay/thurdays/thurs.html'"><img
+              src="TaskDay/Buttons/THURSDAY.png"></button></li>
+        <li><button class="fri" onclick="location.href='TaskDay/friday/fri.html'"><img
+              src="TaskDay/Buttons/FRIDAY.png"></button></li>
+        <li><button class="sat" onclick="location.href='TaskDay/saturday/sat.html'"><img
+              src="TaskDay/Buttons/SATURDAY.png"></button></li>
+        <li><button class="sun" onclick="location.href='TaskDay/sunday/sun.html'"><img
+              src="TaskDay/Buttons/SUNDAY.png"></button></li>
       </ul>
     </div>
 
@@ -55,8 +71,81 @@
 
   </div>
 
-  <script src="sidebar.js"></script> 
+  <script src="sidebar.js"></script>
   <script src="taskCompiler.js"></script>
+
+  <script>
+    const currentUser = sessionStorage.getItem("currentUser");
+    if (!currentUser) window.location.href = "../index.html";
+
+
+    const dayPrefixes = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+    let combinedPoints = 0;
+
+    dayPrefixes.forEach(day => {
+      const key = currentUser + "_" + day + "_totalPoints";
+      combinedPoints += parseInt(localStorage.getItem(key)) || 0;
+    });
+
+    // Display in homepage UI
+    const homePoints = document.getElementById("points");
+    if (homePoints) {
+      homePoints.textContent = combinedPoints;
+    }
+  </script>
+  <script src="userdata.js"></script>
+
+  <script>
+    (function () {
+      // Run after DOM ready
+      function initTotalPointsBox() {
+        // Use a private variable name to avoid global collisions
+        const __tt_currentUser = sessionStorage.getItem("currentUser");
+        if (!__tt_currentUser) {
+          // Safe redirect: use same-case filename you have in your project
+          window.location.href = "../index.html";
+          return;
+        }
+
+        // Days to sum
+        const dayPrefixes = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+        let totalPoints = 0;
+
+        for (const day of dayPrefixes) {
+          const key = `${__tt_currentUser}_${day}_totalPoints`;
+          // parseInt with fallback; guard against non-numeric values
+          const pts = parseInt(localStorage.getItem(key), 10);
+          totalPoints += Number.isFinite(pts) ? pts : 0;
+        }
+
+        // Set the value only if the element exists
+        const el = document.getElementById("totalPointsDisplay") || document.getElementById("points") || null;
+        if (el) {
+          el.textContent = totalPoints;
+        } else {
+          // Optional: create the small badge in the sidebar if it's missing
+          const side = document.getElementById("sidepnnl");
+          if (side) {
+            const box = document.createElement("div");
+            box.className = "total-points-box";
+            box.innerHTML = `<h3>Total Points</h3><p id="totalPointsDisplay">${totalPoints}</p>`;
+            // insert above the task list (first child after close button)
+            const firstUl = side.querySelector(".List");
+            side.insertBefore(box, firstUl);
+          }
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initTotalPointsBox);
+      } else {
+        initTotalPointsBox();
+      }
+    })();
+  </script>
+
+
 </body>
 
 </html>

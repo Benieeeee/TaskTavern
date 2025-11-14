@@ -116,15 +116,39 @@ h1:hover {
   margin-top: 20px;
   margin-bottom: 25px;
   height: 45px;
-  width: fit-content;
-  overflow: hidden;
-  color: #3f2304;
+  width: 200px;
+  overflow-x: scroll;
+  align-items: center;
+  justify-content: right;
+  color: #bd8b51;
+
 }
- .Profile img {
-    height: 95px;
-    margin-left: -75px;
-    margin-top: -33px;
- }
+
+.Pfp::-webkit-scrollbar{
+  display: none;
+}
+
+.Profile {
+    position: relative;
+    display: flex;
+    align-items: center; /* vertically center image and text */
+    gap: 10px; /* space between image and text */
+}
+
+.Profile img {
+    position: relative;
+    height: 100px;
+    left: 25px;
+
+}
+
+.btn-text {
+    position: relative; /* allows moving independently */
+    top: 0; /* move down/up */
+    left: 0; /* move right/left */
+    font-size: 18px;
+    color: #bd8b51;
+}
 
 .sidepnnl::-webkit-scrollbar {
   display: none;
@@ -272,6 +296,8 @@ h1:hover {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-top: -200px;
+  margin-left: 8px;
 }
 
 button:hover {
@@ -289,6 +315,33 @@ button {
   cursor: pointer;
   font-size: 20px;
   transition: 0.3s;
+}
+
+
+.total-points-box {
+  margin: 90px auto;
+  margin-top: 120px;
+  padding: 15px;
+  width: 80%;
+  background: #ffc457dd;
+  border-radius: 15px;
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.total-points-box h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+#totalPointsDisplay {
+  font-size: 24px;
+  font-weight: bold;
+  color: #482801;
+  margin-top: 5px;
 }
 
 

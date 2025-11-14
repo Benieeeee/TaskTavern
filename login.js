@@ -1,4 +1,3 @@
-
 const users = [];
 for (let i = 1; i <= 70; i++) {
   users.push({ username: `Student${i}`, password: "Letran400" });
@@ -29,20 +28,24 @@ form.addEventListener("submit", function (event) {
   );
 
   if (user) {
-  
+
     sessionStorage.setItem("loggedIn", "true");
+
+    // NEW: Store which user is logged in
+    sessionStorage.setItem("currentUser", username);
 
     alert("Login successful! Welcome, " + username + "!");
 
     window.location.href = "Homepage/Home.html";
-  } else {
 
+  } else {
     alert("Invalid username or password. Access denied.");
     usernameInput.value = "";
     passwordInput.value = "";
     usernameInput.focus();
   }
-});
+}); // ← THIS closes form.addEventListener()
+
 
 passwordInput.onfocus = function () {
   messageBox.style.display = "block";
@@ -73,7 +76,7 @@ passwordInput.onkeyup = function () {
     capital.classList.add("invalid");
   }
 
-
+  // Validate number
   if (/[0-9]/.test(value)) {
     number.classList.remove("invalid");
     number.classList.add("valid");
@@ -82,6 +85,7 @@ passwordInput.onkeyup = function () {
     number.classList.add("invalid");
   }
 
+  // Validate length
   if (value.length >= 8) {
     lengthEl.classList.remove("invalid");
     lengthEl.classList.add("valid");
@@ -90,8 +94,3 @@ passwordInput.onkeyup = function () {
     lengthEl.classList.add("invalid");
   }
 };
-
-
-
-
-
