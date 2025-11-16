@@ -1,10 +1,11 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-Body {
-
+/* ===== BODY ===== */
+body {
     font-family: 'Poppins', sans-serif;
     background-image: url(../../WebBackground/3.png);
     background-size: cover;
@@ -14,140 +15,133 @@ Body {
     background-repeat: no-repeat;
     image-rendering: pixelated;
     height: 100vh;
-    width: 100vh;
-    margin: 0;
-
+    width: 100%;
+    animation: fadeIn .7s ease;
 }
 
 
 
-.Butt {
-    margin-top: 10%;
-    margin-bottom: 25%;
-    position: absolute;
-    left: 30%;
-}
-
-.Butt button {
-    gap: 25%;
-    margin: 30PX;
+/* ===== Generic Button Hover ===== */
+button {
     cursor: pointer;
-    transition: ease 0.3s;
-    background-color: transparent;
-    border: none;
-    box-shadow: #3f2304;
+    transition: transform .25s ease, filter .25s ease;
 }
 
-.Butt button:hover {
-    transform: scale(1.05);
+button:hover {
+    transform: scale(1.06);
+    filter: brightness(1.1);
 }
 
-.Butt img {
-    height: 550px;
-    image-rendering: pixelated;
-}
-
-.logo {
-    position: absolute;
-    top: 10px;
-    left: 52%;
-}
-
-.logo img {
-    height: 185px;
-    image-rendering: pixelated;
-}
-
+/* ===== Title ===== */
 .title {
     position: absolute;
     top: 35px;
     left: 15px;
+    animation: slideDown .8s ease;
 }
+
 
 .title img {
-    image-rendering: pixelated;
     height: 175px;
+    image-rendering: pixelated;
 }
 
+/* ===== Bar UI ===== */
 .bar {
     background-color: #f8d27b;
-    height: 85px;
-    width: 385px;
+    height: 115px;
+    width: 155px;
     position: absolute;
     right: 15px;
     top: 35px;
-    border-radius: 10%;
-    overflow: hidden;
+    border-radius: 15px;
+    display: flex;
+    animation: slideLeft .8s ease;
+    justify-content: center;
+    align-items: center;
 }
 
-.Shop {
-    position: absolute;
+/* ===== Home Button ===== */
+.Home {
     right: 15px;
     top: -35px;
-    background-color: white;
+    background-color: transparent;
     border: none;
     width: 105px;
-    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
 }
 
-.Shop img {
-    position: absolute;
-    top: 15px;
-    height: 125px;
+.Home img {
     image-rendering: pixelated;
+    height: 155px;
 }
 
-.Shop button {
-    transition: ease 0.3;
-    cursor: pointer;
-    width: 350px;
-}
-
-.Shop button:hover {
-    transform: scale(1.05);
-}
-
-
-.profile {
-    position: absolute;
-    right: 125px;
-     top: -35px;
-     width: 105px;
+/* ===== Logout Button ===== */
+.Logout {
+    right: 10px;
+    top: 45px;
+    width: 105px;
+    border: none;
     background-color: transparent;
-    border-radius: 5%;
-    z-index: 1;
-    border: none;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.profile img {
+.Logout img {
+    height: 100px;
     image-rendering: pixelated;
-    height: 150px;
 }
 
-.profile button {
-    transition: ease 0.3;
-    width: 55px;
-    cursor: pointer;
-    transition: ease 0.3s;
+/* ===== Character Buttons Row ===== */
+.Butt {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 50px;
+    animation: fadeIn .9s ease;
 }
 
-.profile button:hover{
-    transform: scale(1.05);
+.Butt button {
+    background: transparent;
+    border: none;
+    transition: transform .5s ease;
+}
+
+.Butt img {
+    height: 500px;
+    image-rendering: pixelated;
+    transition: transform .5s ease, filter .5s ease;
+}
+
+.Butt button:hover img {
+    transform: scale(1.07);
+    filter: brightness(1.15);
+}
+
+/* ===== Page Title ===== */
+h1 {
+    position: absolute;
+    top: 28%;
+    left: 18%;
+    transform: translateX(-50%);
+    font-size: 45px;
+    color: #f8d27b;
+    animation: fadeIn .7s ease;
 }
 
 
-button {
-    transition: ease 0.3;
-    cursor: pointer;
-}
+@keyframes fadeIn {
 
-button:hover {
-    transform: scale(1.05);
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

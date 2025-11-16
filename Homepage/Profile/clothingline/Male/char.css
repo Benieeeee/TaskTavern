@@ -528,3 +528,13 @@ Body {
     bottom: 0px; 
     height: 33%;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
