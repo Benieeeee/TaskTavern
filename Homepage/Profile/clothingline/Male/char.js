@@ -1,69 +1,161 @@
+// ======================================================
+//  MUST READ THE CURRENT USER FIRST
+// ======================================================
+const currentUser = sessionStorage.getItem("currentUser");
+if (!currentUser) {
+    window.location.href = "../index.html";
+}
+
+// ======================================================
+//  FETCH USER TOTAL POINTS (ALL DAYS)
+// ======================================================
+function getTotalUserPoints() {
+    const days = ["mon","tue","wed","thu","fri","sat","sun"];
+    let total = 0;
+
+    days.forEach(short => {
+        const key = currentUser + "_" + short + "_totalPoints";
+        total += parseInt(localStorage.getItem(key)) || 0;
+    });
+
+    return total;
+}
+
+// ======================================================
+//  LOCKED ITEMS CONFIG
+// ======================================================
+const lockedItems = {
+    // hats
+    "h3": 500,
+    "h4": 1000,
+    "h5": 1500,
+
+    // shirts
+    "s3": 600,
+    "s4": 1100,
+    "s5": 1600,
+
+    // pants
+    "p3": 700,
+    "p4": 1200,
+    "p5": 1700
+};
+
+// ======================================================
+//  MAIN CHARACTER SCRIPT
+// ======================================================
+
 document.addEventListener("DOMContentLoaded", () => {
     const clothingContainer = document.getElementById("characterDisplay");
     const usernameInput = document.getElementById("usernameInput");
     const nameDisplay = document.getElementById("charNameDisplay");
     const layers = { base: null, hat: null, shirt: null, pants: null };
 
+    let userPoints = getTotalUserPoints();
+
+    // ======================================================
+    //  CLEAR CHARACTER
+    // ======================================================
     function clearCharacter() {
         clothingContainer.innerHTML = "";
         Object.keys(layers).forEach(k => layers[k] = null);
     }
 
-    // 🚺 FEMALE BASE: Loads the Female body image
+    // ======================================================
+    //  SET BASE
+    // ======================================================
     function setBase() {
         clearCharacter();
-        const gender = "male"; 
         const base = document.createElement("img");
-        base.src = "../../../Customization/Body M.png"; // Set Female Body image path
+        base.src = "../../../Customization/Body M.png";
         base.className = "base";
         clothingContainer.appendChild(base);
         layers.base = base;
-        localStorage.setItem("gender", gender); 
         saveCharacter();
     }
 
-    // 🌟 FIX 1: addLayer function accepts and sets the specific class (e.g., f-s2)
+    // ======================================================
+    //  CHECK IF ITEM IS LOCKED
+    // ======================================================
+    function isLocked(classname) {
+        return lockedItems[classname] && userPoints < lockedItems[classname];
+    }
+
+    // ======================================================
+    //  UPDATE BUTTON APPEARANCE
+    // ======================================================
+    function updateButtonLocks() {
+        document.querySelectorAll(".clothing-btn").forEach(btn => {
+            const specificClass = btn.classList[1];
+
+            if (isLocked(specificClass)) {
+                btn.classList.add("locked");   // dark & disabled visual
+            } else {
+                btn.classList.remove("locked"); // normal
+            }
+        });
+    }
+
+    // ======================================================
+    //  ADD LAYER
+    // ======================================================
     function addLayer(type, src, specificClass) {
         if (layers[type]) layers[type].remove();
         const img = document.createElement("img");
         img.src = src;
-        
-        // Combines general type class and the unique class
-        img.className = `${type} ${specificClass}`; 
-        
+        img.className = `${type} ${specificClass}`;
+
         clothingContainer.appendChild(img);
         layers[type] = img;
+
         saveCharacter();
     }
 
-    // 🌟 FIX 2: Extracts the specific class and uses the new addLayer function
-    document.querySelectorAll(".clothing-btn img").forEach(img => {
-        img.parentElement.addEventListener("click", () => {
+    // ======================================================
+    //  BUTTON CLICK EVENTS
+    // ======================================================
+    document.querySelectorAll(".clothing-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const specificClass = btn.classList[1];
+            const img = btn.querySelector("img");
             const src = img.getAttribute("src");
-            // Gets the specific class (e.g., 'f-h1', 'f-s2')
-            const specificClass = img.parentElement.classList[1]; 
+
+            // 🔒 ITEM LOCKED?
+            if (isLocked(specificClass)) {
+                btn.style.animation = "shake 0.3s";
+                setTimeout(() => btn.style.animation = "", 300);
+
+                alert(
+                    `❌ This item is locked!\n`+
+                    `Required: ${lockedItems[specificClass]} points\n` +
+                    `You have: ${userPoints} points`
+                );
+                return;
+            }
+
             const type = detectType(src);
-            
             if (type && specificClass) {
                 addLayer(type, src, specificClass);
             }
         });
     });
 
-    // 🌟 FIX 3: Updated detectType to recognize new female folder names
+    // ======================================================
+    //  DETECT TYPE
+    // ======================================================
     function detectType(src) {
-        // Checks for either old folder name (male) or new folder name (female)
-        if (src.includes("Head Accesories") || src.includes("Male Head")) return "hat";
-        if (src.includes("Clothing") || src.includes("Male Clothing")) return "shirt";
-        if (src.includes("Pants") || src.includes("Male pants")) return "pants";
+        if (src.includes("Head Accesories")) return "hat";
+        if (src.includes("Clothing")) return "shirt";
+        if (src.includes("Pants")) return "pants";
         return null;
     }
 
+    // ======================================================
+    //  SAVE CHARACTER
+    // ======================================================
     function saveCharacter() {
         const data = {
             username: usernameInput.value,
-            gender: localStorage.getItem("gender") || "male", 
-            // Save the specific class names (f-h1, f-s2, etc.) for loading
             hatClass: layers.hat?.classList[1] || null,
             shirtClass: layers.shirt?.classList[1] || null,
             pantsClass: layers.pants?.classList[1] || null,
@@ -71,36 +163,48 @@ document.addEventListener("DOMContentLoaded", () => {
             shirt: layers.shirt?.src || null,
             pants: layers.pants?.src || null,
         };
-        localStorage.setItem("characterData_male", JSON.stringify(data)); 
+        localStorage.setItem(currentUser + "_character", JSON.stringify(data));
     }
 
+    // ======================================================
+    //  LOAD CHARACTER
+    // ======================================================
     function loadCharacter() {
-        const data = JSON.parse(localStorage.getItem("characterData_female") || "{}");
-        if (data.username) usernameInput.value = data.username;
-        setBase(); 
+        const data = JSON.parse(localStorage.getItem(currentUser + "_character") || "{}");
         
-        // Load layers using the saved class names
+        if (data.username) usernameInput.value = data.username;
+        setBase();
+
         if (data.hat && data.hatClass) addLayer("hat", data.hat, data.hatClass);
         if (data.shirt && data.shirtClass) addLayer("shirt", data.shirt, data.shirtClass);
         if (data.pants && data.pantsClass) addLayer("pants", data.pants, data.pantsClass);
-        
+
         updateName();
     }
 
+    // ======================================================
+    //  LIVE NAME UPDATE
+    // ======================================================
     usernameInput.addEventListener("input", updateName);
     function updateName() {
         nameDisplay.textContent = usernameInput.value || "Username :3";
         saveCharacter();
     }
 
+    // ======================================================
+    //  SAVE BUTTON
+    // ======================================================
     document.getElementById("saveCharacterBtn").onclick = () => {
         saveCharacter();
-        alert("✅ Male character saved!");
+        alert("Character saved!");
     };
 
+    // ======================================================
+    //  RESET CHARACTER
+    // ======================================================
     document.getElementById("resetCharacterBtn").onclick = () => {
-        if (confirm("Reset male character?")) {
-            localStorage.removeItem("characterData_female");
+        if (confirm("Reset character?")) {
+            localStorage.removeItem(currentUser + "_character");
             clearCharacter();
             usernameInput.value = "";
             nameDisplay.textContent = "Username :3";
@@ -108,5 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // ======================================================
+    //  INITIAL LOAD
+    // ======================================================
     loadCharacter();
+    updateButtonLocks();   // 🔥 ACTIVATES DARK LOCKED BUTTONS
 });

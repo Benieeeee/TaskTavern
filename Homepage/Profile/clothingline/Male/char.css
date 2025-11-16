@@ -331,11 +331,11 @@ Body {
 /* Crucial: Styling for layered images within .charbox */
 .charbox .base {
     position: absolute;
-    top: 0;
+    top: 8%;
     left: 0;
     right: 0;
     margin: auto;
-    height: 650px;
+    height: 600px;
     image-rendering: pixelated;
     z-index: 1;
 }
@@ -358,7 +358,6 @@ Body {
     left: 0;
     right: 0;
     margin: auto;
-    max-height: 40%; /* Default max size */
     image-rendering: pixelated;
     z-index: 3;
 }
@@ -377,11 +376,11 @@ Body {
 .acceso {
     background-color: #eabe59;
     width: 950px;
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     right: 10px;
     top: 445px;
-    border-radius: 5%;
+    border-radius: 15px;
     height: 240px;
     overflow: scroll;
     display: flex;
@@ -445,27 +444,27 @@ Body {
 
 /* h1: Black Hair/Fringe */
 .charbox .h1 {
-    top: 25px; 
+    top: 75px; 
     height: 25%; 
 }
 /* h2: White Beanie */
 .charbox .h2 {
-    top: 24px;
+    top: 75px;
     height: 25%;
 }
 /* h3: Table Hat */
 .charbox .h3 {
-    top: 28px;
-    height: 18%;
+    top: 75px;
+    height: 17%;
 }
 /* h4: Hollow Knight Mask */
 .charbox .h4 {
-    top: -40px;
+    top: 15px;
     height: 40%;
 }
 /* h5: Demon Mask */
 .charbox .h5 {
-    top: -50px;
+    top: -10px;
     height: 45%;
 }
 
@@ -474,30 +473,28 @@ Body {
 
 /* s1: Blue T-Shirt */
 .charbox .s1 {
-    top: 210px; 
-    height: 700%; 
+    top: 260px; 
+    height: 35%; 
 }
 /* s2: Blue Cloak/Cape */
 .charbox .s2 {
-    top: 210px;
-    height: 700%;
-    width: 75%;
+    top: 225px;
+    height: 60%;
 }
 /* s3: Purple Gojo */
 .charbox .s3 {
-    top: 210px;
-    height: 700%;
+    top: 250px;
+    height: 40%;
 }
 /* s4: Spamton Shirt */
 .charbox .s4 {
     top: 210px;
-    height: 700%;
+    height: 40%;
 }
 /* s5: Batman Shirt */
 .charbox .s5 {
-    top: 220px;
-    height: 700%;
-    width: 60%;
+    top: 260px;
+    height: 45%;
 }
 
 
@@ -528,6 +525,41 @@ Body {
     bottom: 0px; 
     height: 33%;
 }
+
+/* ==========================
+   LOCKED ITEM VISUAL EFFECT
+   ========================== */
+.clothing-btn.locked {
+    filter: brightness(40%) grayscale(60%);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.clothing-btn.locked:hover {
+    transform: none !important;
+    background-color: #f6ac3d !important; /* prevent hover color */
+}
+
+.clothing-btn.locked {
+    filter: brightness(40%) grayscale(60%);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.clothing-btn.locked:hover {
+    transform: none !important;
+}
+
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
 
 @keyframes fadeIn {
   from {

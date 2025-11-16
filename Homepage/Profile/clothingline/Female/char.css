@@ -22,7 +22,7 @@ Body {
     position: relative;
     background-color: transparent;
     border: none;
-    margin-top:-5px;
+    margin-top: -5px;
     margin-left: -60px;
     height: 30px;
     transition: ease 0.3s;
@@ -44,7 +44,7 @@ Body {
 
 #Return img {
     height: 150px;
-    object-fit: contain; 
+    object-fit: contain;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
@@ -63,9 +63,9 @@ Body {
 
 #saveCharacterBtn,
 #resetCharacterBtn,
- img {
+img {
     height: 200px;
-    object-fit: contain; 
+    object-fit: contain;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
@@ -78,7 +78,8 @@ Body {
     overflow-x: scroll;
     top: 20px;
     left: -350px;
-    background-color: rgba(113, 82, 10, 0.844); /* semi-transparent */
+    background-color: rgba(113, 82, 10, 0.844);
+    /* semi-transparent */
     height: 55px;
     width: 250px;
     border-radius: 15px;
@@ -86,7 +87,7 @@ Body {
 
 
 #charNameDisplay::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .controls-top h2 {
@@ -140,7 +141,7 @@ Body {
     height: 95px;
     align-items: center;
     transition: background-color 0.1s;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 .clothing-btn:hover {
@@ -167,11 +168,11 @@ Body {
 /* Crucial: Styling for layered images within .charbox */
 .charbox .base {
     position: absolute;
-    top: 0;
+    top: 8%;
     left: 0;
     right: 0;
     margin: auto;
-    height: 650px;
+    height: 600px;
     image-rendering: pixelated;
     z-index: 1;
 }
@@ -196,8 +197,6 @@ Body {
     left: 0;
     right: 0;
     margin: auto;
-    max-height: 40%;
-    /* Default max size */
     image-rendering: pixelated;
     z-index: 3;
 }
@@ -227,14 +226,14 @@ Body {
     overflow: scroll;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start; 
+    align-items: flex-start;
     padding: 20px;
     border: 3px solid #715714;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .acceso::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .acceso h1 {
@@ -247,7 +246,7 @@ Body {
 .acceso img {
     width: 100%;
     height: 100%;
-    object-fit: contain; 
+    object-fit: contain;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
@@ -285,59 +284,69 @@ Body {
     }
 }
 
+.clothing-btn.locked {
+    filter: brightness(40%) grayscale(70%);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.clothing-btn.locked:hover {
+    transform: none !important;
+}
+
+
 
 .charbox .f-h1 {
-    top: 0px;
-    height: 45%;
+    top: -10px;
+    height: 50%;
     width: 60%;
 }
 
 .charbox .f-h2 {
-    top: 55px;
-    height: 32%;
+    top: 117px;
+    height: 28%;
 }
 
 .charbox .f-h3 {
-    top: 55px;
-    height: 45%;
+    top: 115px;
+    height: 40%;
 }
 
 .charbox .f-h4 {
-    top: 55px;
-    height: 45%;
+    top: 98px;
+    height: 40%;
 }
 
 .charbox .f-h5 {
-    top: 33px;
+    top: 80px;
     height: 35%;
 }
 
 /* --- FEMALE SHIRTS (f-s1 to f-s5) --- */
 
 .charbox .f-s1 {
-    top: 250px;
-    /* Estimated torso position */
-    height: 110%;
-    width: 65%;
+    top: 275px;
+    right: 15px;
+    height: 60%;
 }
 
 .charbox .f-s2 {
-    top: 250px;
+    top: 300px;
     height: 30%;
 }
 
 .charbox .f-s3 {
-    top: 265px;
-    height: 30%;
+    top: 310px;
+    height: 25%;
 }
 
 .charbox .f-s4 {
-    top: 265px;
+    top: 300px;
     height: 30%;
 }
 
 .charbox .f-s5 {
-    top: 265px;
+    top: 300px;
     height: 30%;
 }
 
@@ -345,26 +354,26 @@ Body {
 /* --- FEMALE PANTS (f-p1 to f-p5) --- */
 
 .charbox .f-p1 {
-    bottom: px;
-    height: 35%;
+    bottom: 0%;
+    height: 30%;
 }
 
 .charbox .f-p2 {
-    bottom: 0px;
-    height: 35%;
+    bottom: 0%;
+    height: 30%;
 }
 
 .charbox .f-p3 {
-    bottom: 0px;
-    height: 35%;
+    bottom: 0%;
+    height: 30%;
 }
 
 .charbox .f-p4 {
-    bottom: 0px;
-    height: 35%;
+    bottom: 0%;
+    height: 30%;
 }
 
 .charbox .f-p5 {
-    bottom: 0px;
-    height: 35%;
+    bottom: 0%;
+    height: 30%;
 }
