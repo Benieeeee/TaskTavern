@@ -31,7 +31,7 @@ function addTask() {
     return;
   }
 
-  // Funny warnings, but DO NOT return yet
+  
   if (taskPoints > 10) alert("Thou shall not input an in-game currency that holds a value surpassing the number of 10.");
   if (taskPoints > 50) alert("Your Greed Sickens me");
   if (taskPoints > 100) alert("Seriously");
