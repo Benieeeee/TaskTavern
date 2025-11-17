@@ -1,9 +1,14 @@
+// ======================================================
+//  USER DATABASE (STUDENTS)
+// ======================================================
 const users = [];
 for (let i = 1; i <= 70; i++) {
   users.push({ username: `Student${i}`, password: "Letran400" });
 }
 
-// Get elements
+// ======================================================
+//  GET ELEMENTS
+// ======================================================
 const form = document.getElementById("loginForm");
 const usernameInput = document.getElementById("Username");
 const passwordInput = document.getElementById("Password");
@@ -15,7 +20,9 @@ const capital = document.getElementById("capital");
 const number = document.getElementById("number");
 const lengthEl = document.getElementById("length");
 
-// Handle form submission securely
+// ======================================================
+//  FORM SUBMISSION HANDLER
+// ======================================================
 form.addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent automatic redirect
 
@@ -28,25 +35,22 @@ form.addEventListener("submit", function (event) {
   );
 
   if (user) {
-
     sessionStorage.setItem("loggedIn", "true");
-
-    // NEW: Store which user is logged in
-    sessionStorage.setItem("currentUser", username);
+    sessionStorage.setItem("currentUser", username); // Store logged-in user
 
     alert("Login successful! Welcome, " + username + "!");
-
     window.location.href = "Homepage/Home.html";
-
   } else {
     alert("Invalid username or password. Access denied.");
     usernameInput.value = "";
     passwordInput.value = "";
     usernameInput.focus();
   }
-}); // ← THIS closes form.addEventListener()
+});
 
-
+// ======================================================
+//  PASSWORD INPUT VALIDATION
+// ======================================================
 passwordInput.onfocus = function () {
   messageBox.style.display = "block";
 };

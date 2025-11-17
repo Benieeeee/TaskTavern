@@ -12,67 +12,101 @@
 
 <body data-day="sat">
 
-
-
+  <!-- Access Control -->
   <script>
-
     if (!sessionStorage.getItem("loggedIn")) {
       alert("Access denied. Please log in first.");
       window.location.href = "../../../index.html";
     }
   </script>
 
+  <!-- Main Content -->
   <div class="main">
-    </button>
+
+    <!-- Profile Button -->
     <button class="Pfp" onclick="location.href='../../Profile/sex.html'">
       <div class="Profile">
-        <img src="../../../ButtonIcons/profile.png">
+        <img src="../../../ButtonIcons/profile.png" alt="Profile">
       </div>
     </button>
 
+    <!-- Coins Display (Empty for now) -->
     <div class="Coins"></div>
+
+    <!-- Sign Out -->
     <div class="signout">
-      <a href="../../../index.html">
-        Log Out
-      </a>
+      <a href="../../../index.html">Log Out</a>
     </div>
 
+    <!-- Task Input Section -->
     <div class="task-input">
-
       <h1>TaskTavern</h1>
-      <div class="points-display">Total Points: <span id="totalPoints">0</span></div>
+
+      <div class="points-display">
+        Total Points: <span id="totalPoints">0</span>
+      </div>
 
       <input type="text" id="taskName" placeholder="Enter task name">
       <input type="number" id="taskPoints" placeholder="Points" min="1" max="10">
       <button onclick="addTask()">Add Task</button>
     </div>
+
   </div>
+
+  <!-- Sidebar -->
   <div class="sidepnnl">
-    <button class="Day" onclick="location.href='../../Home.html'"><img src="../../../logo.png"></button>
+    <button class="Day" onclick="location.href='../../Home.html'">
+      <img src="../../../logo.png" alt="Home">
+    </button>
+
     <ul class="List">
-      <li><button class="mon" onclick="location.href='../monday/mon.html'"><img src="../Buttons/MONDAY.png"></button>
+      <li>
+        <button class="mon" onclick="location.href='../monday/mon.html'">
+          <img src="../Buttons/MONDAY.png" alt="Monday">
+        </button>
       </li>
-      <li><button class="tue" onclick="location.href='../tuesday/tue.html'"><img src="../Buttons/TUESDAY.png"></button>
+      <li>
+        <button class="tue" onclick="location.href='../tuesday/tue.html'">
+          <img src="../Buttons/TUESDAY.png" alt="Tuesday">
+        </button>
       </li>
-      <li><button class="wed" onclick="location.href='../wednesday/wed.html'"><img
-            src="../Buttons/WEDNESDAY.png"></button></li>
-      <li><button class="thurs" onclick="location.href='../thurdays/thurs.html'"><img
-            src="../Buttons/THURSDAY.png"></button></li>
-      <li><button class="fri" onclick="location.href='../friday/fri.html'"><img src="../Buttons/FRIDAY.png"></button>
+      <li>
+        <button class="wed" onclick="location.href='../wednesday/wed.html'">
+          <img src="../Buttons/WEDNESDAY.png" alt="Wednesday">
+        </button>
       </li>
-      <li><button class="sat" onclick="location.href='../../Home.html'"><img src="../Buttons/SATURDAY.png"></button>
+      <li>
+        <button class="thurs" onclick="location.href='../thurdays/thurs.html'">
+          <img src="../Buttons/THURSDAY.png" alt="Thursday">
+        </button>
       </li>
-      <li><button class="sun" onclick="location.href='../sunday/sun.html'"><img src="../Buttons/SUNDAY.png"></button>
+      <li>
+        <button class="fri" onclick="location.href='../friday/fri.html'">
+          <img src="../Buttons/FRIDAY.png" alt="Friday">
+        </button>
+      </li>
+      <li>
+        <button class="sat" onclick="location.href='../../Home.html'">
+          <img src="../Buttons/SATURDAY.png" alt="Saturday">
+        </button>
+      </li>
+      <li>
+        <button class="sun" onclick="location.href='../sunday/sun.html'">
+          <img src="../Buttons/SUNDAY.png" alt="Sunday">
+        </button>
       </li>
     </ul>
   </div>
 
+  <!-- Task List -->
   <div class="task-list" id="taskList"></div>
 
+  <!-- Footer -->
   <footer>
     <button onclick="clearAllData()" class="clear-btn">Clear All Data</button>
   </footer>
 
+  <!-- Page Script -->
   <script src="sat.js"></script>
 
 </body>

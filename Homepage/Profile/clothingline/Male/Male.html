@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="char.css" />
     <title>TaskTavern Profile</title>
+
+    <link rel="stylesheet" href="char.css" />
     <link rel="icon" type="img/jpg" href="../../../../logo.png">
 </head>
 
 <body>
 
+    <!-- Login Check -->
     <script>
         if (!sessionStorage.getItem("loggedIn")) {
             alert("Access denied. Please log in first.");
@@ -18,22 +20,35 @@
         }
     </script>
 
-    <button id="Return" onclick="location.href='../../sex.html'"> <img src="../../../../ButtonIcons/Return.png"></button>
+    <!-- Return Button -->
+    <button id="Return" onclick="location.href='../../sex.html'">
+        <img src="../../../../ButtonIcons/Return.png">
+    </button>
 
+    <!-- Top Controls (Username + Displayed Name) -->
     <div class="controls-top">
         <input type="text" id="usernameInput" placeholder="Enter Username">
         <h2 id="charNameDisplay">Username :3</h2>
-    </div> 
-
-    <div class="charbox" id="characterDisplay">
-        </div>
-
-    <div class="controls-bottom">
-        <button id="saveCharacterBtn"><img src="../../../../ButtonIcons/Save.png" alt=""></button>
-        <button id="resetCharacterBtn"><img src="../../../../ButtonIcons/Reset.png" alt=""></button>
     </div>
 
+    <!-- Character Display Box -->
+    <div class="charbox" id="characterDisplay"></div>
+
+    <!-- Bottom Controls -->
+    <div class="controls-bottom">
+        <button id="saveCharacterBtn">
+            <img src="../../../../ButtonIcons/Save.png" alt="">
+        </button>
+
+        <button id="resetCharacterBtn">
+            <img src="../../../../ButtonIcons/Reset.png" alt="">
+        </button>
+    </div>
+
+    <!-- Clothing Selection Panel -->
     <div class="acceso">
+
+        <!-- HATS -->
         <div class="hats">
             <h1>--HATS--</h1>
             <ul>
@@ -45,6 +60,7 @@
             </ul>
         </div>
 
+        <!-- SHIRTS -->
         <div class="shirts">
             <h1>--SHIRTS--</h1>
             <ul>
@@ -56,6 +72,7 @@
             </ul>
         </div>
 
+        <!-- PANTS -->
         <div class="pant">
             <h1>--PANTS--</h1>
             <ul>
@@ -66,11 +83,12 @@
                 <li><button class="clothing-btn p5"><img src="../../../Customization/Pants/jokerincognito.png"></button></li>
             </ul>
         </div>
+
     </div>
 
+    <!-- Script -->
     <script src="char.js"></script>
 
-    
 </body>
 
 </html>

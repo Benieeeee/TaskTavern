@@ -1,5 +1,5 @@
-const DAY_NAME = "Monday";             
-const SHORT = "mon";                     
+const DAY_NAME = "Monday";
+const SHORT = "mon";
 const currentUser = sessionStorage.getItem("currentUser");
 
 if (!currentUser) window.location.href = "../../../index.html";
@@ -18,7 +18,6 @@ window.onload = function () {
 function saveData() {
   localStorage.setItem(DAY_PREFIX + "_totalPoints", totalPoints);
   localStorage.setItem(DAY_PREFIX + "_tasks", JSON.stringify(tasks));
-
   syncTasksToHomeCompilation();
 }
 
@@ -39,12 +38,10 @@ function addTask() {
   if (taskPoints > 700) alert("why do i even bother...");
   if (taskPoints > 1000) alert("i give up...");
 
-
   if (taskPoints > 10) {
     return;
   }
 
-  
   const newTask = {
     id: Date.now(),
     name: taskName,
@@ -61,9 +58,9 @@ function addTask() {
   renderTasks();
 }
 
-
 function completeTask(id) {
   const task = tasks.find(t => t.id === id);
+
   if (task && !task.completed) {
     task.completed = true;
     totalPoints += task.points;

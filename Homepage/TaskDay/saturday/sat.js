@@ -1,5 +1,8 @@
-const DAY_NAME = "Saturday";             
-const SHORT = "sat";                     
+// =========================
+// DAY & USER SETUP
+// =========================
+const DAY_NAME = "Saturday";
+const SHORT = "sat";
 const currentUser = sessionStorage.getItem("currentUser");
 
 if (!currentUser) window.location.href = "../../../index.html";
@@ -10,18 +13,47 @@ const MASTER_KEY = currentUser + "_allTasks";
 let totalPoints = parseInt(localStorage.getItem(DAY_PREFIX + "_totalPoints")) || 0;
 let tasks = JSON.parse(localStorage.getItem(DAY_PREFIX + "_tasks")) || [];
 
+// =========================
+// INITIALIZATION
+// =========================
 window.onload = function () {
   document.getElementById("totalPoints").textContent = totalPoints;
   renderTasks();
 };
 
+// =========================
+// SAVE & SYNC FUNCTIONS
+// =========================
 function saveData() {
   localStorage.setItem(DAY_PREFIX + "_totalPoints", totalPoints);
   localStorage.setItem(DAY_PREFIX + "_tasks", JSON.stringify(tasks));
-
   syncTasksToHomeCompilation();
 }
 
+// Sync incomplete tasks to homepage master list
+function syncTasksToHomeCompilation() {
+  let master = JSON.parse(localStorage.getItem(MASTER_KEY)) || [];
+
+  // Remove existing entries for this day
+  master = master.filter(t => t.day !== DAY_NAME);
+
+  // Add pending tasks
+  const pending = tasks
+    .filter(t => !t.completed)
+    .map(t => ({
+      day: DAY_NAME,
+      text: t.name,
+      done: false,
+      points: t.points
+    }));
+
+  master = master.concat(pending);
+  localStorage.setItem(MASTER_KEY, JSON.stringify(master));
+}
+
+// =========================
+// TASK MANAGEMENT
+// =========================
 function addTask() {
   const taskName = document.getElementById("taskName").value.trim();
   const taskPoints = parseInt(document.getElementById("taskPoints").value);
@@ -31,7 +63,7 @@ function addTask() {
     return;
   }
 
-  // Funny warnings, but DO NOT return yet
+  // Funny warnings
   if (taskPoints > 10) alert("Thou shall not input an in-game currency that holds a value surpassing the number of 10.");
   if (taskPoints > 50) alert("Your Greed Sickens me");
   if (taskPoints > 100) alert("Seriously");
@@ -40,12 +72,8 @@ function addTask() {
   if (taskPoints > 700) alert("why do i even bother...");
   if (taskPoints > 1000) alert("i give up...");
 
+  if (taskPoints > 10) return;
 
-  if (taskPoints > 10) {
-    return;
-  }
-
-  
   const newTask = {
     id: Date.now(),
     name: taskName,
@@ -55,6 +83,7 @@ function addTask() {
 
   tasks.push(newTask);
 
+  // Clear input fields
   document.getElementById("taskName").value = "";
   document.getElementById("taskPoints").value = "";
 
@@ -62,9 +91,9 @@ function addTask() {
   renderTasks();
 }
 
-
 function completeTask(id) {
   const task = tasks.find(t => t.id === id);
+
   if (task && !task.completed) {
     task.completed = true;
     totalPoints += task.points;
@@ -91,6 +120,9 @@ function clearAllData() {
   renderTasks();
 }
 
+// =========================
+// RENDER TASK LIST
+// =========================
 function renderTasks() {
   const taskList = document.getElementById("taskList");
   taskList.innerHTML = "";
@@ -108,26 +140,4 @@ function renderTasks() {
 
     taskList.appendChild(div);
   });
-}
-
-// =======================================================================
-// === SYNC DAY TASKS TO HOMEPAGE MASTER LIST ============================
-// =======================================================================
-function syncTasksToHomeCompilation() {
-  let master = JSON.parse(localStorage.getItem(MASTER_KEY)) || [];
-
-  master = master.filter(t => t.day !== DAY_NAME);
-
-  const pending = tasks
-    .filter(t => !t.completed)
-    .map(t => ({
-      day: DAY_NAME,
-      text: t.name,
-      done: false,
-      points: t.points
-    }));
-
-  master = master.concat(pending);
-
-  localStorage.setItem(MASTER_KEY, JSON.stringify(master));
 }

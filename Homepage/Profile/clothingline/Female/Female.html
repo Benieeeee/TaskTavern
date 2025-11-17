@@ -11,6 +11,7 @@
 
 <body>
 
+    <!-- LOGIN CHECK -->
     <script>
         if (!sessionStorage.getItem("loggedIn")) {
             alert("Access denied. Please log in first.");
@@ -18,33 +19,47 @@
         }
     </script>
 
-    <button id="Return" onclick="location.href='../../sex.html'"> <img src="../../../../ButtonIcons/Return.png"></button>
+    <!-- RETURN BUTTON -->
+    <button id="Return" onclick="location.href='../../sex.html'">
+        <img src="../../../../ButtonIcons/Return.png">
+    </button>
 
+    <!-- TOP CONTROLS -->
     <div class="controls-top">
         <input type="text" id="usernameInput" placeholder="Enter Username">
         <h2 id="charNameDisplay">Username :3</h2>
     </div>
 
-    <div class="charbox" id="characterDisplay">
-    </div>
+    <!-- CHARACTER DISPLAY -->
+    <div class="charbox" id="characterDisplay"></div>
 
+    <!-- BOTTOM BUTTONS -->
     <div class="controls-bottom">
-        <button id="saveCharacterBtn"><img src="../../../../ButtonIcons/Save.png" alt=""></button>
-        <button id="resetCharacterBtn"><img src="../../../../ButtonIcons/Reset.png" alt=""></button>
+        <button id="saveCharacterBtn">
+            <img src="../../../../ButtonIcons/Save.png" alt="">
+        </button>
+
+        <button id="resetCharacterBtn">
+            <img src="../../../../ButtonIcons/Reset.png" alt="">
+        </button>
     </div>
 
+    <!-- ACCESSORY PANEL -->
     <div class="acceso">
+
+        <!-- HATS -->
         <div class="hats">
             <h1>--HATS--</h1>
             <ul>
                 <li><button class="clothing-btn f-h1"><img src="../../../Customization/Female Head/Layer 26.png"></button></li>
                 <li><button class="clothing-btn f-h2"><img src="../../../Customization/Female Head/Layer 28.png"></button></li>
-                <li><button class="clothing-btn f-h3"><img src="../../../Customization/Female Head/Layer 30.png"></bhrutton></li>
+                <li><button class="clothing-btn f-h3"><img src="../../../Customization/Female Head/Layer 30.png"></button></li>
                 <li><button class="clothing-btn f-h4"><img src="../../../Customization/Female Head/Layer 31.png"></button></li>
                 <li><button class="clothing-btn f-h5"><img src="../../../Customization/Female Head/Layer 32.png"></button></li>
             </ul>
         </div>
 
+        <!-- SHIRTS -->
         <div class="shirts">
             <h1>--SHIRTS--</h1>
             <ul>
@@ -56,6 +71,7 @@
             </ul>
         </div>
 
+        <!-- PANTS -->
         <div class="pant">
             <h1>--PANTS--</h1>
             <ul>
@@ -66,9 +82,11 @@
                 <li><button class="clothing-btn f-p5"><img src="../../../Customization/female pants/Layer 51.png"></button></li>
             </ul>
         </div>
+
     </div>
 
     <script src="char.js"></script>
+
 </body>
 
 </html>

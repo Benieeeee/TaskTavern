@@ -1,8 +1,15 @@
+/* ======================================================
+   RESET
+====================================================== */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* ======================================================
+   BODY
+====================================================== */
 body {
     background-image: url(WebBackground/1.png);
     background-size: cover;
@@ -16,7 +23,9 @@ body {
     align-items: center;
 }
 
-
+/* ======================================================
+   LOGIN CONTAINER
+====================================================== */
 .Login {
     height: 550px;
     width: 750px;
@@ -24,48 +33,14 @@ body {
     margin-top: -16%;
     left: 25%;
     justify-content: center;
-    animation-duration: 4s;
-    animation-name: fade-in;
-
+    opacity: 0;
+    transform: translateY(40px);
+    animation: loginFade 1s ease-out forwards;
 }
 
-#message {
-    display: none;
-    color: #623d0b;
-    position: absolute;
-    bottom: 25px;
-    background-color: #eabe59;
-    opacity: 55%;
-    margin-left: 15px;
-    margin-bottom: 15px;
-    margin-top: 10px;
-}
-
-#message p {
-    padding: 10px 35px;
-    font-size: 15px;
-}
-
-button {
-    background-color: transparent;
-    color: #623d0b;
-    font-size: 25px;
-    border: none;
-    width: 120px;
-    height: 50px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 15px;
-
-}
-
-button:hover {
-    background-color: #eabe59;
-    color: #623d0b;
-}
-
+/* ======================================================
+   LOGO
+====================================================== */
 .LOGO {
     background-color: transparent;
     width: 400px;
@@ -76,26 +51,18 @@ button:hover {
     justify-items: center;
     align-items: center;
     margin-bottom: -85px;
+    animation: logoPop 1s ease-out forwards;
 }
-
 
 .LOGO img {
     height: 150px;
     image-rendering: pixelated;
 }
 
-
-.Title1 {
-    text-shadow: 20px;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 100px;
-    text-align: start;
-    color: #eabe59;
-
-
-}
-
+/* ======================================================
+   TITLES
+====================================================== */
+.Title1,
 .Title2 {
     text-shadow: 20px;
     font-size: 20px;
@@ -105,138 +72,149 @@ button:hover {
     color: #eabe59;
 }
 
-.username {
-
-    width: 550px;
-    height: 50px;
-}
-
-
-input[type="text"],
-textarea {
-    height: 45px;
-    width: 545px;
-    background-color: #FFDBBB;
-    border-color: #7e5a05;
-    color: #7e5a05;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-
-
-input[type="text"]:focus,
-textarea:focus {
-    outline: none;
-    border-color: #c89316;
-    border-color: rgb(133, 83, 7);
-    box-shadow: 0 0 5px rgb(102, 77, 19);
-    transform: scale(1.05);
-}
-
-input[type="password"],
-textarea {
-    height: 45px;
-    width: 545px;
-    background-color: #FFDBBB;
-    border-color: #7e5a05;
-    color: #7e5a05;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-
-input[type="password"]:focus,
-textarea:focus {
-    outline: none;
-    border-color: #FFDBBB;
-    border-color: rgb(133, 83, 7);
-    box-shadow: 0 0 5px rgb(102, 77, 19);
-    transform: scale(1.05);
-}
-
-
-
+/* ======================================================
+   INPUT FIELDS
+====================================================== */
+.username,
 .password {
     width: 550px;
     height: 50px;
 }
 
+input[type="text"],
+input[type="password"],
+textarea {
+    height: 45px;
+    width: 545px;
+    background-color: #FFDBBB;
+    border: 2px solid #7e5a05;
+    color: #7e5a05;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: rgb(133, 83, 7);
+    box-shadow: 0 0 10px rgba(219, 117, 0, 0.6);
+    transform: scale(1.05);
+}
+
+/* ======================================================
+   PASSWORD RULE MESSAGE BOX
+====================================================== */
+#message {
+    display: none;
+    color: #623d0b;
+    position: absolute;
+    bottom: 25px;
+    background-color: #eabe59;
+    opacity: 0.55;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 15px;
+}
+
+/* ======================================================
+   LOGIN BUTTON
+====================================================== */
 .loginbtn {
     height: fit-content;
     margin-top: 25px;
-    transition: ease 0.3s;
+    transition: all 0.3s ease;
 }
 
-
-/* Asikasooooooooooooooooooooooooooooooooooooooooooooooooooooooooo */
-
-
 .loginbtn img {
-   position: relative;
+    position: relative;
     top: 61.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 295px;
     z-index: -1;
-
-    
 }
 
-.loginbtn button:hover{
-    transform: scale(1.10);
+.loginbtn button:hover {
+    transform: scale(1.15);
+    background-color: #eabe59;
+    transition: all 0.3s ease;
+}
+
+/* ======================================================
+   GENERIC BUTTONS
+====================================================== */
+button {
     background-color: transparent;
+    color: #623d0b;
+    font-size: 25px;
+    border: none;
+    width: 120px;
+    height: 50px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+button:hover {
+    background-color: #eabe59;
+    color: #623d0b;
+}
 
-
-
+/* ======================================================
+   LINKS
+====================================================== */
 a:link {
     color: #a6530a;
-    background-color: transparent;
     text-decoration: none;
 }
 
 a:visited {
     color: #FFDBBB;
-    background-color: transparent;
     text-decoration: none;
 }
 
 a:hover {
     color: #f6ac3d;
-    background-color: transparent;
     text-decoration: none;
     transition: 0.3s;
 }
 
 a:active {
     color: #db7500;
-    background-color: transparent;
     text-decoration: none;
 }
 
-.Login {
-    animation: loginFade 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(40px);
-}
-
+/* ======================================================
+   ANIMATIONS
+====================================================== */
 @keyframes loginFade {
     from {
         opacity: 0;
         transform: translateY(40px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
 
+@keyframes logoPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

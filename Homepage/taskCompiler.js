@@ -1,5 +1,5 @@
 // ======================================================
-//  MUST READ THE CURRENT USER FIRST
+//  CURRENT USER CHECK
 // ======================================================
 const currentUser = sessionStorage.getItem("currentUser");
 if (!currentUser) {
@@ -7,16 +7,19 @@ if (!currentUser) {
 }
 
 // ======================================================
-//  USER-UNIQUE STORAGE KEYS
+//  USER-SPECIFIC STORAGE KEYS
 // ======================================================
-const ALL_TASKS_KEY = currentUser + "_allTasks";   // ← FIXED!!!
+const ALL_TASKS_KEY = currentUser + "_allTasks";
 
+// ======================================================
+//  RENDER PENDING TASKS ON DOM LOAD
+// ======================================================
 document.addEventListener("DOMContentLoaded", renderTasks);
 
 function renderTasks() {
     const taskCompilationArea = document.getElementById("task-compilation-area");
 
-    // Load THIS USER'S master list
+    // Load this user's master task list
     const storedTasksJSON = localStorage.getItem(ALL_TASKS_KEY);
     let allTasks = storedTasksJSON ? JSON.parse(storedTasksJSON) : [];
 
@@ -54,7 +57,7 @@ function renderTasks() {
         taskList.appendChild(li);
     });
 
-    // COMPLETE button
+    // Handle COMPLETE button click
     taskList.addEventListener("click", event => {
         if (!event.target.classList.contains("complete-btn")) return;
 
@@ -67,24 +70,19 @@ function renderTasks() {
     taskCompilationArea.appendChild(taskList);
 }
 
-
 // ======================================================
-//  FIXED — PER STUDENT TASK COMPLETION LOGIC
+//  MARK TASK AS COMPLETE
 // ======================================================
 function markTaskAsComplete(taskText, taskDay) {
-
     const short = taskDay.toLowerCase().substring(0, 3);
 
-    // FIXED: USER SPECIFIC KEYS
     const dayKey = currentUser + "_" + short + "_tasks";
     const dayPointsKey = currentUser + "_" + short + "_totalPoints";
 
     let dayTasks = JSON.parse(localStorage.getItem(dayKey)) || [];
-
     let pointsAwarded = 0;
 
     const idx = dayTasks.findIndex(t => t.name === taskText && !t.completed);
-
     if (idx !== -1) {
         dayTasks[idx].completed = true;
         pointsAwarded = dayTasks[idx].points;
@@ -96,10 +94,9 @@ function markTaskAsComplete(taskText, taskDay) {
         localStorage.setItem(dayPointsKey, totalPoints);
     }
 
-    // Update master list
+    // Update master task list
     let master = JSON.parse(localStorage.getItem(ALL_TASKS_KEY)) || [];
     master = master.filter(t => !(t.text === taskText && t.day === taskDay));
-
     localStorage.setItem(ALL_TASKS_KEY, JSON.stringify(master));
 
     renderTasks();

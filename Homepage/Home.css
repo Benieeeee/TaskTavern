@@ -1,3 +1,6 @@
+/* ==========================
+   BODY
+========================== */
 body {
   font-family: 'Poppins', sans-serif;
   background-image: url(../WebBackground/2.png);
@@ -17,9 +20,53 @@ body {
   animation: fadeIn 0.5s ease-in forwards;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
+/* ==========================
+   HEADER & TITLES
+========================== */
+h1 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
+h1 img {
+  height: 150px;
+  image-rendering: pixelated;
+}
 
+h1:hover {
+  color: #f9edcd;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+button {
+  background-color: #f7b929;
+  color: #715714;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.10);
+  background-color: #eabe59;
+}
+
+/* Task Button */
 .TaskButt {
   width: 120px;
   height: 40px;
@@ -41,14 +88,13 @@ body {
   height: 175px;
   image-rendering: pixelated;
   position: absolute;
-
-
 }
- 
+
 .TaskButt button:hover {
   background-color: transparent;
 }
 
+/* Close Button */
 .closebutt {
   top: 35px;
   left: 30px;
@@ -71,44 +117,30 @@ body {
   background-color: transparent;
 }
 
-/* futher fixation */
+/* ==========================
+   MAIN CONTAINER
+========================== */
 .main {
   position: relative;
   margin-left: 15%;
   justify-content: center;
 }
 
+/* ==========================
+   SIGNOUT LINK
+========================== */
 .signout {
   display: flex;
   position: fixed;
-  right: 30px;
+  right: 51px;
   margin-top: 75px;
   margin-bottom: 25px;
-  right: 51px;
   font-size: 15.9px;
 }
 
-
-h1 {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-h1 img {
-  height: 150px;
-  image-rendering: pixelated;
-}
-
-h1:hover {
-  color: #f9edcd;
-}
-
-
+/* ==========================
+   PROFILE PANEL
+========================== */
 .Pfp {
   display: flex;
   position: fixed;
@@ -121,40 +153,36 @@ h1:hover {
   align-items: center;
   justify-content: right;
   color: #bd8b51;
-
 }
 
-.Pfp::-webkit-scrollbar{
+.Pfp::-webkit-scrollbar {
   display: none;
 }
 
 .Profile {
-    position: relative;
-    display: flex;
-    align-items: center; /* vertically center image and text */
-    gap: 10px; /* space between image and text */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .Profile img {
-    position: relative;
-    height: 100px;
-    left: 25px;
-
+  position: relative;
+  height: 100px;
+  left: 25px;
 }
 
 .btn-text {
-    position: relative; /* allows moving independently */
-    top: 0; /* move down/up */
-    left: 0; /* move right/left */
-    font-size: 18px;
-    color: #bd8b51;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  color: #bd8b51;
 }
 
-.sidepnnl::-webkit-scrollbar {
-  display: none;
-}
-
-
+/* ==========================
+   SIDE PANEL
+========================== */
 #sidepnnl {
   position: fixed;
   left: 0;
@@ -164,9 +192,7 @@ h1:hover {
   transform: translateX(-500px);
   transition: transform 0.8s ease;
   z-index: 1000;
-
 }
-
 
 .sidepnnl {
   background-image: url("../WebBackground/3.png");
@@ -178,14 +204,14 @@ h1:hover {
   padding: 15px;
 }
 
+.sidepnnl::-webkit-scrollbar {
+  display: none;
+}
 
-.mon,
-.tue,
-.wed,
-.thurs,
-.fri,
-.sat,
-.sun {
+/* ==========================
+   DAY BUTTONS
+========================== */
+.mon, .tue, .wed, .thurs, .fri, .sat, .sun {
   height: 80px;
   margin-top: 20px;
   width: 250px;
@@ -196,93 +222,15 @@ h1:hover {
   background-color: transparent;
 }
 
-.mon img {
-  margin-top: 35px;
-  height: 225px;
-  image-rendering: pixelated;
-  margin-left: -45%;
-}
-
-.tue img {
+.mon img { margin-top: 35px; height: 225px; image-rendering: pixelated; margin-left: -45%; }
+.tue img, .wed img, .thurs img, .fri img, .sat img, .sun img {
   height: 225px;
   image-rendering: pixelated;
   margin-left: -45%;
   margin-top: -115px;
 }
 
-.wed img {
-  height: 225px;
-  image-rendering: pixelated;
-  margin-left: -45%;
-  margin-top: -115px;
-}
-
-.thurs img {
-  height: 225px;
-  image-rendering: pixelated;
-  margin-left: -45%;
-  margin-top: -115px;
-}
-
-.fri img {
-  height: 225px;
-  image-rendering: pixelated;
-  margin-left: -45%;
-  margin-top: -115px;
-}
-
-.sat img {
-  height: 225px;
-  image-rendering: pixelated;
-  margin-left: -45%;
-  margin-top: -115px;
-}
-
-.sun img {
-  height: 225px;
-  image-rendering: pixelated;
-  margin-left: -45%;
-  margin-top: -115px;
-}
-
-
-.mon:hover {
-  transform: scale(1.05);
-  background-color: transparent;
-}
-
-
-.tue:hover {
-  transform: scale(1.05);
-  background-color: transparent;
-}
-
-
-.wed:hover {
-  transform: scale(1.05);
-  background-color: transparent;
-}
-
-
-.thurs:hover {
-  transform: scale(1.05);
-  background-color: transparent;
-}
-
-
-.fri:hover {
-  transform: scale(1.05);
-  background-color: transparent;
-}
-
-
-.sat:hover {
-  transform: scale(1.05);
-  background-color: transparent;
-}
-
-
-.sun:hover {
+.mon:hover, .tue:hover, .wed:hover, .thurs:hover, .fri:hover, .sat:hover, .sun:hover {
   transform: scale(1.05);
   background-color: transparent;
 }
@@ -300,24 +248,9 @@ h1:hover {
   margin-left: 8px;
 }
 
-button:hover {
-  transform: scale(1.10);
-  background-color: #eabe59;
-}
-
-
-button {
-  background-color: #f7b929;
-  color: #715714;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 20px;
-  transition: 0.3s;
-}
-
-
+/* ==========================
+   TOTAL POINTS BOX
+========================== */
 .total-points-box {
   margin: 90px auto;
   margin-top: 120px;
@@ -344,24 +277,10 @@ button {
   margin-top: 5px;
 }
 
-
-/*  
- #FFDBBB
- #eabe59
-  #f6ac3d
-  #db7500
-#715714 
-#7e5a05
-
-*/
-
-a:link {
-  color: #f6ac3d;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:visited {
+/* ==========================
+   LINKS
+========================== */
+a:link, a:visited {
   color: #f6ac3d;
   background-color: transparent;
   text-decoration: none;
@@ -379,32 +298,19 @@ a:active {
   text-decoration: none;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* --- Styles for Task Compilation Area --- */
-
+/* ==========================
+   TASK COMPILATION AREA
+========================== */
 .Task {
-  /* Center the task compilation area */
   position: absolute;
   margin-top: 350px;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  /*content box */
   background-color: rgba(255, 255, 255, 0.95);
   border: 3px solid #715714;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-
   height: auto;
   max-height: 45vh;
   width: 750px;
@@ -461,8 +367,6 @@ a:active {
   font-size: 14px;
   margin-left: 10px;
   transition: background-color 0.3s;
-  transition: ease 0.3s;
-
 }
 
 .complete-btn:hover {

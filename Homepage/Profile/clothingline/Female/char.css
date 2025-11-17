@@ -1,9 +1,12 @@
+/* ================================
+   GLOBAL RESET + BODY
+================================ */
 * {
     margin: 0;
     padding: 0;
 }
 
-Body {
+body {
     font-family: 'Poppins', sans-serif;
     background-image: url(../../../../WebBackground/3.png);
     background-size: cover;
@@ -14,10 +17,12 @@ Body {
     image-rendering: pixelated;
     height: 100vh;
     width: 100%;
-    margin: 0;
     position: relative;
 }
 
+/* ================================
+   RETURN BUTTON
+================================ */
 #Return {
     position: relative;
     background-color: transparent;
@@ -33,14 +38,12 @@ Body {
     border: none;
     cursor: pointer;
     display: flex;
-    border-radius: 15px;
     justify-content: center;
     width: 20px;
+    border-radius: 15px;
     align-items: center;
     transition: ease 0.3s;
 }
-
-
 
 #Return img {
     height: 150px;
@@ -49,6 +52,9 @@ Body {
     image-rendering: crisp-edges;
 }
 
+/* ================================
+   CONTROL PANEL (TOP)
+================================ */
 .controls-top {
     position: absolute;
     top: 95px;
@@ -59,35 +65,6 @@ Body {
     color: #ffd34e;
     z-index: 10;
     border-radius: 10px;
-}
-
-#saveCharacterBtn,
-#resetCharacterBtn,
-img {
-    height: 200px;
-    object-fit: contain;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-}
-
-#charNameDisplay {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: scroll;
-    top: 20px;
-    left: -350px;
-    background-color: rgba(113, 82, 10, 0.844);
-    /* semi-transparent */
-    height: 55px;
-    width: 250px;
-    border-radius: 15px;
-}
-
-
-#charNameDisplay::-webkit-scrollbar {
-    display: none;
 }
 
 .controls-top h2 {
@@ -103,14 +80,56 @@ img {
     border-radius: 10px;
 }
 
+/* Save / Reset buttons */
+#saveCharacterBtn,
+#resetCharacterBtn,
+img {
+    height: 200px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Username display */
+#charNameDisplay {
+    position: absolute;
+    top: 20px;
+    left: -350px;
+    height: 55px;
+    width: 250px;
+    background-color: rgba(113, 82, 10, 0.844);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+#charNameDisplay::-webkit-scrollbar {
+    display: none;
+}
+
+/* Username input */
+#usernameInput {
+    position: relative;
+    margin-top: 28%;
+    background-color: #eabe59;
+    color: #3f2304;
+    font-weight: 600;
+    font-size: 15px;
+    height: 50px;
+    border: solid 0.3px #715714;
+}
+
+/* ================================
+   CONTROL PANEL (BOTTOM)
+================================ */
 .controls-bottom {
     position: absolute;
-    top: 225px;
-    right: 45%;
-    bottom: 10px;
+    top: 170px;
+    right: 5%;
     display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 100px;
 }
 
 .controls-bottom button {
@@ -118,10 +137,10 @@ img {
     border: none;
     cursor: pointer;
     display: flex;
-    border-radius: 15px;
     justify-content: center;
     width: 150px;
     height: 0px;
+    border-radius: 15px;
     align-items: center;
     transition: ease 0.3s;
 }
@@ -130,7 +149,9 @@ img {
     transform: scale(1.05);
 }
 
-
+/* ================================
+   CLOTHING BUTTONS
+================================ */
 .clothing-btn {
     background-color: #f6ac3d;
     border: 2px solid #db7500;
@@ -148,100 +169,177 @@ img {
     background-color: #db7500;
 }
 
-.charbox {
-    margin-top: 25px;
-    position: absolute;
-    left: 5%;
-    height: 650px;
-    width: 390px;
-    margin-bottom: 15px;
-    background-color: #eabe59;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    border-radius: 5%;
-    border: 3px solid #715714;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+/* Locked items */
+.clothing-btn.locked {
+    filter: brightness(40%) grayscale(60%);
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-/* Crucial: Styling for layered images within .charbox */
+.clothing-btn.locked:hover {
+    transform: none !important;
+    background-color: #f6ac3d !important;
+}
+
+/* ================================
+   CHARBOX (Character Preview)
+================================ */
+.charbox {
+    position: absolute;
+    left: 5%;
+    margin-top: 25px;
+    height: 550px;
+    width: 390px;
+    background-color: #eabe59;
+    border-radius: 5%;
+    border: 3px solid #715714;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ================================
+   LAYERED CHARACTER PARTS
+================================ */
+
+/* Base */
 .charbox .base {
     position: absolute;
-    top: 8%;
-    left: 0;
-    right: 0;
+    top: 15%;
     margin: auto;
-    height: 600px;
+    height: 450px;
     image-rendering: pixelated;
     z-index: 1;
 }
 
-/* DEFAULT LAYERING STYLES */
+/* Pants */
 .charbox .pants {
     position: absolute;
-    bottom: 0px;
-    left: 0;
-    right: 0;
+    bottom: 0;
     margin: auto;
     height: 35%;
-    /* Default size */
     image-rendering: pixelated;
     z-index: 2;
 }
 
+/* Shirts */
 .charbox .shirt {
     position: absolute;
     top: 50px;
-    /* Default starting position */
-    left: 0;
-    right: 0;
     margin: auto;
     image-rendering: pixelated;
     z-index: 3;
 }
 
+/* Hats */
 .charbox .hat {
     position: absolute;
     top: 10px;
-    /* Default starting position */
-    left: 0;
-    right: 0;
     margin: auto;
     height: 30%;
-    /* Default size */
     image-rendering: pixelated;
     z-index: 4;
 }
 
+/* ================================
+   SPECIFIC ITEM POSITIONS
+================================ */
+
+/* ================================
+   FEMALE — HATS
+================================ */
+.charbox .f-h1 {
+    top: 35px;
+    height: 45%;
+    width: 60%;
+}
+
+.charbox .f-h2 {
+    top: 117px;
+    height: 27%;
+}
+
+.charbox .f-h3 {
+    top: 115px;
+    height: 40%;
+}
+
+.charbox .f-h4 {
+    top: 115px;
+    height: 35%;
+}
+
+.charbox .f-h5 {
+    top: 80px;
+    height: 34%;
+}
+
+/* ================================
+   FEMALE — SHIRTS 
+================================ */
+.charbox .f-s1 {
+    top: 260px;
+    right: 80px;
+    height: 60%;
+}
+
+.charbox .f-s2 {
+    top: 270px;
+    height: 28%;
+}
+
+.charbox .f-s3 {
+    top: 275px;
+    height: 20%;
+}
+
+.charbox .f-s4 {
+    top: 265px;
+    height: 25%;
+}
+
+.charbox .f-s5 {
+    top: 265px;
+    height: 25%;
+}
+
+/* ================================
+   FEMALE — PANTS (f-p1 to f-p5)
+================================ */
+.charbox .f-p1,
+.charbox .f-p2,
+.charbox .f-p3,
+.charbox .f-p4,
+.charbox .f-p5 {
+    bottom: 15px;
+    height: 30%;
+}
+
+/* ================================
+   ACCESSORY PANEL
+================================ */
 .acceso {
     background-color: #eabe59;
     width: 950px;
+    height: 340px;
     position: absolute;
-    bottom: 50px;
+    top: 345px;
     right: 10px;
-    top: 445px;
-    border-radius: 5%;
-    height: 240px;
+    border-radius: 15px;
     overflow: scroll;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
     padding: 20px;
     border: 3px solid #715714;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
 .acceso::-webkit-scrollbar {
     display: none;
 }
-
-.acceso h1 {
-    color: #3f2304;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
 
 .acceso img {
     width: 100%;
@@ -268,112 +366,18 @@ img {
     margin: 0;
 }
 
-.hats li,
-.shirts li,
-.pant li {
-    margin-bottom: 10px;
+/* ================================
+   ANIMATIONS
+================================ */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.clothing-btn.locked {
-    filter: brightness(40%) grayscale(70%);
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.clothing-btn.locked:hover {
-    transform: none !important;
-}
-
-
-
-.charbox .f-h1 {
-    top: -10px;
-    height: 50%;
-    width: 60%;
-}
-
-.charbox .f-h2 {
-    top: 117px;
-    height: 28%;
-}
-
-.charbox .f-h3 {
-    top: 115px;
-    height: 40%;
-}
-
-.charbox .f-h4 {
-    top: 98px;
-    height: 40%;
-}
-
-.charbox .f-h5 {
-    top: 80px;
-    height: 35%;
-}
-
-/* --- FEMALE SHIRTS (f-s1 to f-s5) --- */
-
-.charbox .f-s1 {
-    top: 275px;
-    right: 15px;
-    height: 60%;
-}
-
-.charbox .f-s2 {
-    top: 300px;
-    height: 30%;
-}
-
-.charbox .f-s3 {
-    top: 310px;
-    height: 25%;
-}
-
-.charbox .f-s4 {
-    top: 300px;
-    height: 30%;
-}
-
-.charbox .f-s5 {
-    top: 300px;
-    height: 30%;
-}
-
-
-/* --- FEMALE PANTS (f-p1 to f-p5) --- */
-
-.charbox .f-p1 {
-    bottom: 0%;
-    height: 30%;
-}
-
-.charbox .f-p2 {
-    bottom: 0%;
-    height: 30%;
-}
-
-.charbox .f-p3 {
-    bottom: 0%;
-    height: 30%;
-}
-
-.charbox .f-p4 {
-    bottom: 0%;
-    height: 30%;
-}
-
-.charbox .f-p5 {
-    bottom: 0%;
-    height: 30%;
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

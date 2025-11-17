@@ -10,7 +10,7 @@ if (!currentUser) {
 //  FETCH USER TOTAL POINTS (ALL DAYS)
 // ======================================================
 function getTotalUserPoints() {
-    const days = ["mon","tue","wed","thu","fri","sat","sun"];
+    const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
     let total = 0;
 
     days.forEach(short => {
@@ -44,7 +44,6 @@ const lockedItems = {
 // ======================================================
 //  FEMALE CHARACTER SCRIPT
 // ======================================================
-
 document.addEventListener("DOMContentLoaded", () => {
     const clothingContainer = document.getElementById("characterDisplay");
     const usernameInput = document.getElementById("usernameInput");
@@ -67,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function setBase() {
         clearCharacter();
         const base = document.createElement("img");
-        base.src = "../../../Customization/Body F.png"; 
+        base.src = "../../../Customization/Body F.png";
         base.className = "base";
         clothingContainer.appendChild(base);
         layers.base = base;
@@ -146,14 +145,14 @@ document.addEventListener("DOMContentLoaded", () => {
     //  DETECT LAYER TYPE (FEMALE SUPPORT ADDED)
     // ======================================================
     function detectType(src) {
-    const lower = src.toLowerCase();
+        const lower = src.toLowerCase();
 
-    if (lower.includes("head") || lower.includes("hat")) return "hat";
-    if (lower.includes("shirt") || lower.includes("cloth")) return "shirt";
-    if (lower.includes("pant")) return "pants"; // catches pant, pants, Pants, PANTS
+        if (lower.includes("head") || lower.includes("hat")) return "hat";
+        if (lower.includes("shirt") || lower.includes("cloth")) return "shirt";
+        if (lower.includes("pant")) return "pants";
 
-    return null;
-}
+        return null;
+    }
 
     // ======================================================
     //  SAVE CHARACTER
@@ -181,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (data.username) usernameInput.value = data.username;
 
-        setBase(); 
+        setBase();
 
         if (data.hat && data.hatClass) addLayer("hat", data.hat, data.hatClass);
         if (data.shirt && data.shirtClass) addLayer("shirt", data.shirt, data.shirtClass);
