@@ -15,6 +15,11 @@
       <h1><img src="../TaskTavern.png"></h1>
     </center>
 
+    <!-- Character Preview Box on Home Page -->
+    <div class="homeCharacterBox">
+      <div id="homeCharPreview"></div>
+    </div>
+
     <script>
       if (!sessionStorage.getItem("loggedIn")) {
         alert("Access denied. Please log in first.");
@@ -75,24 +80,63 @@
   <script src="taskCompiler.js"></script>
 
   <script>
-    const currentUser = sessionStorage.getItem("currentUser");
-    if (!currentUser) window.location.href = "../index.html";
+    (function () {
+      const currentUser = sessionStorage.getItem("currentUser");
+      if (!currentUser) return;
+
+      const previewBox = document.getElementById("homeCharPreview");
+
+      function loadPreview() {
+        while (previewBox.firstChild) previewBox.removeChild(previewBox.firstChild);
+
+        const gender = localStorage.getItem(`${currentUser}_gender`) || "male";
+        const key = gender === "female"
+          ? `${currentUser}_character_female`
+          : `${currentUser}_character`;
+        const data = JSON.parse(localStorage.getItem(key) || "{}");
+
+        // Base
+        const base = document.createElement("img");
+        base.className = "base";
+        base.src = gender === "female" ? "Customization/Body F.png" : "Customization/Body M.png";
+        base.style.zIndex = "0";
+        previewBox.appendChild(base);
+
+        // Add layers if exist
+        function addLayer(src, className, zIndex) {
+          if (!src) return;
+          const img = document.createElement("img");
+          img.src = src;
+          img.className = className;
+          img.style.zIndex = zIndex;
+          previewBox.appendChild(img);
+        }
+
+        addLayer(data.pants, data.pantsClass, "2");
+        addLayer(data.shirt, data.shirtClass, "3");
+        addLayer(data.hat, data.hatClass, "4");
+      }
+
+      // Initial load
+      loadPreview();
+
+      // Listen for storage changes (other tabs)
+      window.addEventListener("storage", (e) => {
+        if ([`${currentUser}_character`, `${currentUser}_character_female`, `${currentUser}_gender`].includes(e.key)) {
+          loadPreview();
+        }
+      });
+
+      // Listen for custom events (same tab updates)
+      window.addEventListener("characterUpdated", loadPreview);
+
+      // Refresh when tab becomes visible
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) loadPreview();
+      });
+    })();
 
 
-    const dayPrefixes = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
-
-    let combinedPoints = 0;
-
-    dayPrefixes.forEach(day => {
-      const key = currentUser + "_" + day + "_totalPoints";
-      combinedPoints += parseInt(localStorage.getItem(key)) || 0;
-    });
-
-    // Display in homepage UI
-    const homePoints = document.getElementById("points");
-    if (homePoints) {
-      homePoints.textContent = combinedPoints;
-    }
   </script>
   <script src="userdata.js"></script>
 

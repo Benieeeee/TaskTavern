@@ -33,13 +33,49 @@
     <h1>Character Gender</h1>
 
     <div class="Butt">
-        <button class="btnMale" onclick="location.href='clothingline/Male/Male.html'"><img src="../Customization/Body M.png"></button>
-        <button class="btnFemale" onclick="location.href='clothingline/Female/Female.html'"><img src="../Customization/Body F.png"></button>
+        <button class="btnMale" onclick="location.href='clothingline/Male/Male.html'"><img
+                src="../Customization/Body M.png"></button>
+        <button class="btnFemale" onclick="location.href='clothingline/Female/Female.html'"><img
+                src="../Customization/Body F.png"></button>
     </div>
 
-    
 
+    <div class="Butt">
+        <button class="btnMale" onclick="selectMale()">
+            <img src="../Customization/Body M.png">
+        </button>
+        <button class="btnFemale" onclick="selectFemale()">
+            <img src="../Customization/Body F.png">
+        </button>
+    </div>
 
+    <script>
+        const currentUser = sessionStorage.getItem("currentUser");
+
+        function selectMale() {
+            const maleData = JSON.parse(localStorage.getItem(`${currentUser}_character`) || '{}');
+            localStorage.setItem(`${currentUser}_character`, JSON.stringify(maleData));
+            localStorage.setItem(`${currentUser}_gender`, "male");
+
+            // Dispatch event for Home page
+            window.dispatchEvent(new Event("characterUpdated"));
+
+            // Redirect to male customization page
+            location.href = 'clothingline/Male/Male.html';
+        }
+
+        function selectFemale() {
+            const femaleData = JSON.parse(localStorage.getItem(`${currentUser}_character_female`) || '{}');
+            localStorage.setItem(`${currentUser}_character_female`, JSON.stringify(femaleData));
+            localStorage.setItem(`${currentUser}_gender`, "female");
+
+            // Dispatch event for Home page
+            window.dispatchEvent(new Event("characterUpdated"));
+
+            // Redirect to female customization page
+            location.href = 'clothingline/Female/Female.html';
+        }
+    </script>
 
 </body>
 

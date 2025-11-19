@@ -218,3 +218,16 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCharacter();
     updateButtonLocks();   // 🔥 ACTIVATES DARK LOCKED BUTTONS
 });
+
+// Saving Male
+        const maleData = {
+            hat: selectedHatSrc,
+            hatClass: selectedHatClass,
+            shirt: selectedShirtSrc,
+            shirtClass: selectedShirtClass,
+            pants: selectedPantsSrc,
+            pantsClass: selectedPantsClass
+        };
+        localStorage.setItem(`${currentUser}_character`, JSON.stringify(maleData));
+        localStorage.setItem(`${currentUser}_gender`, "male"); // switch to male immediately
+

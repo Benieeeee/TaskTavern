@@ -226,3 +226,14 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCharacter();
     updateButtonLocks();
 });
+
+const femaleData = {
+    hat: selectedHatSrc,
+    hatClass: selectedHatClass,
+    shirt: selectedShirtSrc,
+    shirtClass: selectedShirtClass,
+    pants: selectedPantsSrc,
+    pantsClass: selectedPantsClass
+};
+localStorage.setItem(`${currentUser}_character_female`, JSON.stringify(femaleData));
+localStorage.setItem(`${currentUser}_gender`, "female"); // switch to female immediately

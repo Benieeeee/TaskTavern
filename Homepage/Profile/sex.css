@@ -99,7 +99,7 @@ button:hover {
 .Butt {
     position: absolute;
     left: 50%;
-    top: 58%;
+    top: 65%;
     transform: translate(-50%, -50%);
     display: flex;
     gap: 50px;
@@ -113,7 +113,7 @@ button:hover {
 }
 
 .Butt img {
-    height: 500px;
+    height: 520px;
     image-rendering: pixelated;
     transition: transform .5s ease, filter .5s ease;
 }
@@ -133,6 +133,8 @@ h1 {
     color: #f8d27b;
     animation: fadeIn .7s ease;
 }
+
+
 
 
 @keyframes fadeIn {

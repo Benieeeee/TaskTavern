@@ -21,8 +21,13 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* ==========================
@@ -211,7 +216,13 @@ button:hover {
 /* ==========================
    DAY BUTTONS
 ========================== */
-.mon, .tue, .wed, .thurs, .fri, .sat, .sun {
+.mon,
+.tue,
+.wed,
+.thurs,
+.fri,
+.sat,
+.sun {
   height: 80px;
   margin-top: 20px;
   width: 250px;
@@ -222,15 +233,32 @@ button:hover {
   background-color: transparent;
 }
 
-.mon img { margin-top: 35px; height: 225px; image-rendering: pixelated; margin-left: -45%; }
-.tue img, .wed img, .thurs img, .fri img, .sat img, .sun img {
+.mon img {
+  margin-top: 35px;
+  height: 225px;
+  image-rendering: pixelated;
+  margin-left: -45%;
+}
+
+.tue img,
+.wed img,
+.thurs img,
+.fri img,
+.sat img,
+.sun img {
   height: 225px;
   image-rendering: pixelated;
   margin-left: -45%;
   margin-top: -115px;
 }
 
-.mon:hover, .tue:hover, .wed:hover, .thurs:hover, .fri:hover, .sat:hover, .sun:hover {
+.mon:hover,
+.tue:hover,
+.wed:hover,
+.thurs:hover,
+.fri:hover,
+.sat:hover,
+.sun:hover {
   transform: scale(1.05);
   background-color: transparent;
 }
@@ -261,7 +289,7 @@ button:hover {
   text-align: center;
   font-family: Poppins, sans-serif;
   backdrop-filter: blur(5px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .total-points-box h3 {
@@ -280,7 +308,8 @@ button:hover {
 /* ==========================
    LINKS
 ========================== */
-a:link, a:visited {
+a:link,
+a:visited {
   color: #f6ac3d;
   background-color: transparent;
   text-decoration: none;
@@ -371,4 +400,230 @@ a:active {
 
 .complete-btn:hover {
   background-color: #db7500;
+}
+
+/* HOME PAGE CHARACTER PREVIEW */
+/* ==========================
+   CHARACTER PREVIEW BOX
+========================== */
+.homeCharacterBox {
+  position: absolute;
+  right: 15px;
+  top: 60%;
+  height: 320px;
+  width: 200px;
+  background-color: #eabe59;
+  border-radius: 5%;
+  border: 3px solid #715714;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* ================================
+   LAYERED CHARACTER PARTS
+================================ */
+
+/* Base */
+#homeCharPreview .base {
+  position: absolute;
+  top: 10%;
+  left: 35px;
+  margin: auto;
+  height: 300px;
+  image-rendering: pixelated;
+  z-index: 1;
+}
+
+/* Pants */
+#homeCharPreview .pants {
+  position: absolute;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+/* Shirts */
+#homeCharPreview .shirt {
+  position: absolute;
+  image-rendering: pixelated;
+  z-index: 3;
+}
+
+/* Hats */
+#homeCharPreview .hat {
+  position: absolute;
+  image-rendering: pixelated;
+  z-index: 4;
+}
+
+/* ================================
+   SPECIFIC ITEM POSITIONS
+================================ */
+
+/* --- HATS --- */
+#homeCharPreview .h1 {
+  position: absolute;
+  margin-top: 37px;
+  left: 43px;
+  height: 25%;
+}
+
+#homeCharPreview .h2 {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 42px;
+  height: 25%;
+}
+
+#homeCharPreview .h3 {
+  position: absolute;
+  top: 45px;
+  left: 46.5px;
+  height: 18%;
+}
+
+#homeCharPreview .h4 {
+  position: absolute;
+  top: 10px;
+  left: 27.5px;
+  height: 42%;
+}
+
+#homeCharPreview .h5 {
+  position: absolute;
+  top: 5px;
+  left: 46.5px;
+  height: 45%;
+}
+
+/* --- SHIRTS --- */
+#homeCharPreview .s1 {
+  position: relative;
+  margin-top: 135px;
+  height: 35%;
+}
+
+#homeCharPreview .s2 {
+  position: relative;
+  margin-top: 125px;
+  margin-left: 20px;
+  height: 60%;
+}
+
+#homeCharPreview .s3 {
+  position: relative;
+  margin-top: 120px;
+  height: 40%;
+}
+
+#homeCharPreview .s4 {
+  position: relative;
+  margin-top: 120px;
+  height: 35%;
+}
+
+#homeCharPreview .s5 {
+  position: relative;
+  margin-top: 140px;
+  height: 45%;
+}
+
+/* --- PANTS --- */
+#homeCharPreview .p1,
+#homeCharPreview .p2,
+#homeCharPreview .p3,
+#homeCharPreview .p4,
+#homeCharPreview .p5 {
+  position: absolute;
+  bottom: -10px;
+  left: 55px;
+  height: 30%;
+}
+
+
+/* Female Hats */
+#homeCharPreview .f-h1 {
+  position: absolute;
+  top: 20px;
+  left: 42px;
+  height: 45%;
+  width: 50%;
+}
+
+#homeCharPreview .f-h2 {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  height: 30%;
+}
+
+#homeCharPreview .f-h3 {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  height: 40%;
+}
+
+#homeCharPreview .f-h4 {
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  height: 35%;
+}
+
+#homeCharPreview .f-h5 {
+  position: absolute;
+  top: 45px;
+  left: 40.5px;
+  height: 34%;
+}
+
+/* Female Shirts */
+#homeCharPreview .f-s1 {
+  position: relative;
+  margin-top: 145px;
+  left: -10px;
+  height: 60%;
+}
+
+#homeCharPreview .f-s2 {
+  position: relative;
+  margin-top: 150px;
+  left: -10px;
+  height: 28%;
+}
+
+#homeCharPreview .f-s3 {
+  position: relative;
+  margin-top: 150px;
+  left: -10px;
+  height: 28%;
+}
+
+#homeCharPreview .f-s4 {
+  position: relative;
+  margin-top: 155px;
+  left: -10px;
+  height: 28%;
+}
+
+#homeCharPreview .f-s5 {
+  position: relative;
+  margin-top: 155px;
+  left: -10px;
+  height: 28%;
+}
+
+/* Female Pants */
+#homeCharPreview .f-p1,
+#homeCharPreview .f-p2,
+#homeCharPreview .f-p3,
+#homeCharPreview .f-p4,
+#homeCharPreview .f-p5 {
+  position: absolute;
+  bottom: -10px;
+  left: 45px;
+  height: 30%;
 }
