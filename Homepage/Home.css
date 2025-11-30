@@ -494,7 +494,7 @@ a:active {
 #homeCharPreview .h2 {
   position: absolute;
   margin-top: 30px;
-  margin-left: -63%;
+  margin-left: -32%;
   height: 28%;
 
 }
@@ -523,8 +523,9 @@ a:active {
 /* --- SHIRTS --- */
 #homeCharPreview .s1 {
   position: relative;
-  margin-top: 135px;
+  margin-top: 140px;
   height: 35%;
+   left: -3%;
 }
 
 #homeCharPreview .s2 {
@@ -650,4 +651,5 @@ a:active {
   bottom: -6.5px;
   left: 52px;
   height: 30%;
+
 }
