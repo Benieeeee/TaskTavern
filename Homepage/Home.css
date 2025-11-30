@@ -152,12 +152,14 @@ button:hover {
   right: 29px;
   margin-top: 20px;
   margin-bottom: 25px;
+  overflow-y: scroll;
   height: 45px;
   width: 200px;
-  overflow-x: scroll;
+  overflow: hidden;
   align-items: center;
   justify-content: right;
   color: #bd8b51;
+
 }
 
 .Pfp::-webkit-scrollbar {
@@ -167,29 +169,31 @@ button:hover {
 .Profile {
   position: relative;
   display: flex;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
   align-items: center;
   gap: 10px;
 }
 
 .Profile img {
-  position: relative;
+  position: absolute;
   height: 100px;
-  left: 25px;
+  left: -250px;
 }
 
 .usernameDisplay {
-  position: relative;
+  position: absolute;
   display: flex;
-  top: 0;
-  left: 0;
-  font-size: 18px;
+  top: -15px;
+  right: 20px;
+  overflow-x: scroll;
+  font-size: 25px;
   color: #653702;
 }
 
-.Pfp .btn-text {
-  display: none !important;
+.usernameDisplay::-webkit-scrollbar {
+  display: none;
 }
-
 
 
 /* ==========================
@@ -442,6 +446,15 @@ a:active {
   height: 300px;
   image-rendering: pixelated;
   z-index: 1;
+
+}
+
+/* Female base */
+
+#homeCharPreview .female-base {
+  left: 42px;
+  bottom: 5px;
+  height: 305px;
 }
 
 
@@ -483,7 +496,7 @@ a:active {
   margin-top: 30px;
   margin-left: -63%;
   height: 28%;
-  
+
 }
 
 #homeCharPreview .h3 {
@@ -547,81 +560,83 @@ a:active {
 #homeCharPreview .p5 {
   position: absolute;
   bottom: -10px;
-  left: 55px;
+  left: 50px;
   height: 30%;
 }
+
+
 
 
 /* Female Hats */
 #homeCharPreview .f-h1 {
   position: absolute;
-  top: 20px;
-  left: 42px;
+  top: 10px;
+  left: 50px;
   height: 45%;
   width: 50%;
 }
 
 #homeCharPreview .f-h2 {
   position: absolute;
-  top: 60px;
-  left: 40px;
+  top: 50px;
+  left: 45px;
   height: 30%;
 }
 
 #homeCharPreview .f-h3 {
   position: absolute;
-  top: 60px;
-  left: 40px;
-  height: 40%;
+  top: 50px;
+  left: 43px;
+  height: 42%;
 }
 
 #homeCharPreview .f-h4 {
   position: absolute;
-  top: 60px;
+  top: 48px;
   left: 50px;
-  height: 35%;
+  height: 40%;
 }
 
 #homeCharPreview .f-h5 {
   position: absolute;
-  top: 45px;
-  left: 40.5px;
+  top: 40px;
+  left: 49px;
   height: 34%;
 }
 
 /* Female Shirts */
 #homeCharPreview .f-s1 {
   position: relative;
-  margin-top: 145px;
-  left: -10px;
+  margin-top: 140px;
+  left: -2px;
   height: 60%;
 }
 
 #homeCharPreview .f-s2 {
   position: relative;
   margin-top: 150px;
-  left: -10px;
+  left: 0px;
   height: 28%;
 }
 
 #homeCharPreview .f-s3 {
   position: relative;
   margin-top: 150px;
-  left: -10px;
+  left: 0px;
   height: 28%;
 }
 
 #homeCharPreview .f-s4 {
   position: relative;
-  margin-top: 155px;
-  left: -10px;
+  margin-top: 150px;
+  left: 0px;
   height: 28%;
 }
 
 #homeCharPreview .f-s5 {
   position: relative;
-  margin-top: 155px;
-  left: -10px;
+  margin-top: 150px;
+  left: 0px;
   height: 28%;
 }
 
@@ -632,7 +647,7 @@ a:active {
 #homeCharPreview .f-p4,
 #homeCharPreview .f-p5 {
   position: absolute;
-  bottom: -10px;
-  left: 45px;
+  bottom: -6.5px;
+  left: 52px;
   height: 30%;
 }

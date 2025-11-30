@@ -87,22 +87,37 @@
       const previewBox = document.getElementById("homeCharPreview");
 
       function loadPreview() {
-        while (previewBox.firstChild) previewBox.removeChild(previewBox.firstChild);
+        // clear existing preview
+        previewBox.innerHTML = "";
 
         const gender = localStorage.getItem(`${currentUser}_gender`) || "male";
+
+        // choose key based on gender
         const key = gender === "female"
           ? `${currentUser}_character_female`
           : `${currentUser}_character`;
+
         const data = JSON.parse(localStorage.getItem(key) || "{}");
 
-        // Base
+        // ==============================
+        // BASE BODY – separated male/female
+        // ==============================
         const base = document.createElement("img");
-        base.className = "base";
-        base.src = gender === "female" ? "Customization/Body F.png" : "Customization/Body M.png";
+
+        if (gender === "female") {
+          base.src = "Customization/Body F.png";
+          base.className = "base female-base";  // female gets special class
+        } else {
+          base.src = "Customization/Body M.png";
+          base.className = "base male-base";    // male gets own class
+        }
+
         base.style.zIndex = "0";
         previewBox.appendChild(base);
 
-        // Add layers if exist
+        // ==============================
+        // ADD LAYERS (shirt, pants, hat)
+        // ==============================
         function addLayer(src, className, zIndex) {
           if (!src) return;
           const img = document.createElement("img");
@@ -112,32 +127,31 @@
           previewBox.appendChild(img);
         }
 
-        addLayer(data.pants, data.pantsClass, "2");
-        addLayer(data.shirt, data.shirtClass, "3");
-        addLayer(data.hat, data.hatClass, "4");
+        addLayer(data.pants, data.pantsClass, 2);
+        addLayer(data.shirt, data.shirtClass, 3);
+        addLayer(data.hat, data.hatClass, 4);
       }
 
-      // Initial load
+      // initial run
       loadPreview();
 
-      // Listen for storage changes (other tabs)
+      // storage updates from other tabs
       window.addEventListener("storage", (e) => {
         if ([`${currentUser}_character`, `${currentUser}_character_female`, `${currentUser}_gender`].includes(e.key)) {
           loadPreview();
         }
       });
 
-      // Listen for custom events (same tab updates)
+      // custom event updates from same tab
       window.addEventListener("characterUpdated", loadPreview);
 
-      // Refresh when tab becomes visible
+      // reload when returning to tab
       document.addEventListener("visibilitychange", () => {
         if (!document.hidden) loadPreview();
       });
     })();
-
-
   </script>
+
   <script src="userdata.js"></script>
 
   <script>
