@@ -219,10 +219,16 @@ button:hover,
 }
 
 /* TASK LIST */
+.task-list::-webkit-scrollbar {
+  display: none;
+}
+
 .task-list {
   width: 95%;
   max-width: 800px;
   margin-right: -100%;
+  overflow-y: scroll;
+  height: 75%;
 }
 
 .task {

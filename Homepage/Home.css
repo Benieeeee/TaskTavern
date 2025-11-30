@@ -437,6 +437,7 @@ a:active {
   z-index: 1;
 }
 
+
 /* Pants */
 #homeCharPreview .pants {
   position: absolute;
@@ -472,9 +473,10 @@ a:active {
 
 #homeCharPreview .h2 {
   position: absolute;
-  margin-top: 40px;
-  margin-left: 42px;
-  height: 25%;
+  margin-top: 30px;
+  margin-left: -63%;
+  height: 28%;
+  
 }
 
 #homeCharPreview .h3 {
@@ -514,7 +516,7 @@ a:active {
 
 #homeCharPreview .s3 {
   position: relative;
-  margin-top: 120px;
+  margin-top: 125px;
   height: 40%;
 }
 

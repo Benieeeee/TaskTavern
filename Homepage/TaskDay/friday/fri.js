@@ -47,7 +47,7 @@ function addTask() {
     completed: false
   };
 
-  tasks.push(newTask);
+  tasks.unshift(newTask);
 
   document.getElementById("taskName").value = "";
   document.getElementById("taskPoints").value = "";

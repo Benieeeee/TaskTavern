@@ -81,7 +81,7 @@ function addTask() {
     completed: false
   };
 
-  tasks.push(newTask);
+  tasks.unshift(newTask);
 
   // Clear input fields
   document.getElementById("taskName").value = "";
