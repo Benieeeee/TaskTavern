@@ -77,7 +77,7 @@ h1 {
   position: absolute;
   display: flex;
   top: -15px;
-  right: 20px;
+  left: -125px;
   overflow-x: scroll;
   font-size: 25px;
   color: #653702;
