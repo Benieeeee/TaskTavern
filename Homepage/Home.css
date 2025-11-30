@@ -177,13 +177,20 @@ button:hover {
   left: 25px;
 }
 
-.btn-text {
+.usernameDisplay {
   position: relative;
+  display: flex;
   top: 0;
   left: 0;
   font-size: 18px;
-  color: #bd8b51;
+  color: #653702;
 }
+
+.Pfp .btn-text {
+  display: none !important;
+}
+
+
 
 /* ==========================
    SIDE PANEL

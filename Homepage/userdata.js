@@ -125,4 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 })();
 
+document.addEventListener("DOMContentLoaded", () => {
+    const currentUser = sessionStorage.getItem("currentUser");
+    if (!currentUser) return;
+
+    const usernameSpan = document.getElementById("homeUsername");
+    const data = JSON.parse(localStorage.getItem(currentUser + "_character") || "{}");
+
+    usernameSpan.textContent = data.username || "";
+});
 
