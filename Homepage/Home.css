@@ -494,7 +494,7 @@ a:active {
 #homeCharPreview .h2 {
   position: absolute;
   margin-top: 30px;
-  margin-left: -32%;
+  left: 17%;
   height: 28%;
 
 }
@@ -653,3 +653,4 @@ a:active {
   height: 30%;
 
 }
+
