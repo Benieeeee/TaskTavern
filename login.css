@@ -258,3 +258,38 @@ a:active {
 #overlay p {
     margin: 5px 0;
 }
+
+@media (max-width: 768px) {
+    #overlay {
+        padding: 20px;
+        font-size: 1.5rem;     /* smaller font for tablets */
+    }
+
+    #overlay h1,
+    #overlay h2 {
+        font-size: 2rem;
+    }
+
+    #overlay p {
+        font-size: 1.2rem;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #overlay {
+        padding: 10px;
+        font-size: 1.1rem;    
+    }
+
+    #overlay h1,
+    #overlay h2 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    #overlay p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+}
