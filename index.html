@@ -3,15 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="login.css">
   <link rel="icon" type="img/jpg" href="logo.png">
   <script defer src="login.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Task Tavern</title>
 </head>
 
-<body class="no-scroll">
+<body>
 
   <!-- Overlay for small screens -->
   <div id="overlay">
@@ -19,7 +18,7 @@
     <h2>⚠️ Screen too small!</h2>
     <p>The TaskTavern works best on a larger screen.</p>
     <p>Resize your browser or switch to a desktop to continue.</p>
-    
+
   </div>
 
   <!-- Login Form -->
@@ -68,18 +67,24 @@
   </div>
 
   <script>
+    // Make sure the element exists first
     const overlay = document.getElementById("overlay");
 
+    // Function that runs the check
     function checkScreenSize() {
-      if (window.innerWidth < 1440) {
+      if (window.innerWidth <= 1023) {
         overlay.classList.remove("hidden");
       } else {
         overlay.classList.add("hidden");
       }
     }
 
-    window.addEventListener("load", checkScreenSize);
+    // Run on first load
+    checkScreenSize();
+
+    // Run when window is resized
     window.addEventListener("resize", checkScreenSize);
+
   </script>
 
 </body>
