@@ -259,33 +259,39 @@ a:active {
     margin: 5px 0;
 }
 
-/* ===== MOBILE + TABLET VIEW (show overlay, hide everything else) ===== */
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
+
+/* MOBILE + TABLET: overlay only, no zoom-out reveal */
 @media (max-width: 1023px) {
 
-    .Login,
-    .LOGO,
-    body>*:not(#overlay) {
-        display: none !important;
+    html, body {
+        overflow: hidden !important;
+        width: 100vw;
+        height: 100vh;
+        touch-action: none; /* disables pinch, drag, multi-touch */
+        position: fixed;
     }
 
+    /* Hide EVERYTHING except overlay */
+    body > *:not(#overlay) {
+        display: none !important;
+    }
 
     #overlay {
         display: flex !important;
         width: 100vw;
         height: 100vh;
-        padding: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999999 !important;
         overflow: hidden;
-    }
-}
-
-
-@media (min-width: 1024px) {
-    #overlay {
-        display: none !important;
-    }
-
-    .Login,
-    .LOGO {
-        display: block !important;
+        touch-action: none;
     }
 }
