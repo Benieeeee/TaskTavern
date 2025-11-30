@@ -44,17 +44,49 @@ h1 {
   right: 29px;
   margin-top: 20px;
   margin-bottom: 25px;
+  overflow-y: scroll;
   height: 45px;
-  width: fit-content;
+  width: 200px;
   overflow: hidden;
-  color: #3f2304;
+  align-items: center;
+  justify-content: right;
+  color: #bd8b51;
+
+}
+
+.Pfp::-webkit-scrollbar {
+  display: none;
+}
+
+.Profile {
+  position: relative;
+  display: flex;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  align-items: center;
+  gap: 10px;
 }
 
 .Profile img {
-  height: 95px;
-  margin-left: -75px;
-  margin-top: -33px;
+  position: absolute;
+  height: 100px;
+  left: -250px;
 }
+
+.usernameDisplay {
+  position: absolute;
+  display: flex;
+  top: -15px;
+  right: 20px;
+  overflow-x: scroll;
+  font-size: 25px;
+  color: #653702;
+}
+
+.usernameDisplay::-webkit-scrollbar {
+  display: none;
+}
+
 
 /* HOME BUTTON */
 .Day {
@@ -106,7 +138,6 @@ h1 {
   transition: 0.2s;
 }
 
-.clear-btn:hover {}
 
 /* DAY BUTTONS */
 .mon,
@@ -203,7 +234,7 @@ button:hover,
 .task-input {
   display: flex;
   margin-top: 109px;
-  margin-right: -325px;
+  margin-right: -35px;
   gap: 15px;
   margin-left: 0;
   margin-bottom: 20px;
@@ -227,7 +258,7 @@ button:hover,
 .task-list {
   width: 95%;
   max-width: 800px;
-  margin-right: -100%;
+  margin-right: -85%;
   overflow-y: scroll;
   height: 75%;
 }

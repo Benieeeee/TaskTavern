@@ -127,3 +127,20 @@ function syncTasksToHomeCompilation() {
 
   localStorage.setItem(MASTER_KEY, JSON.stringify(master));
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const currentUser = sessionStorage.getItem("currentUser");
+    if (!currentUser) return;
+
+    const usernameSpan = document.getElementById("homeUsername");
+
+    const gender = localStorage.getItem(currentUser + "_gender") || "male";
+    const key = gender === "female"
+        ? currentUser + "_character_female"
+        : currentUser + "_character";
+
+    const data = JSON.parse(localStorage.getItem(key) || "{}");
+
+    usernameSpan.textContent = data.username || "Guest";
+});
+
