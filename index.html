@@ -11,6 +11,16 @@
 </head>
 
 <body>
+  <!-- Overlay for small screens -->
+  <div id="overlay">
+    <h1>:(</h1>
+    <h2>⚠️ Screen too small!</h2>
+    <p>The TaskTavern works best on a larger screen.</p>
+    <p>Resize your browser or switch to a desktop to continue.</p>
+    
+  </div>
+
+  <!-- Login Form -->
   <form id="loginForm">
     <div class="Login">
       <center>
@@ -54,6 +64,22 @@
     <p id="number" class="invalid">A <b>number</b></p>
     <p id="length" class="invalid">Minimum <b>8 characters</b></p>
   </div>
+
+  <script>
+    const overlay = document.getElementById("overlay");
+
+    function checkScreenSize() {
+      if (window.innerWidth < 1440) {
+        overlay.classList.remove("hidden");
+      } else {
+        overlay.classList.add("hidden");
+      }
+    }
+
+    window.addEventListener("load", checkScreenSize);
+    window.addEventListener("resize", checkScreenSize);
+  </script>
+
 </body>
 
 </html>
