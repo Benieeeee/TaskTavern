@@ -236,7 +236,7 @@ a:active {
     justify-content: center;
     text-align: center;
     font-family: sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #362802;
     flex-direction: column;
 }
@@ -246,13 +246,14 @@ a:active {
 }
 
 #overlay h1 {
+    margin-top: -50%;
     color: #452500;
 }
 
 #overlay h2 {
     color: #764a19;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 #overlay p {
