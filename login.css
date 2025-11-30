@@ -259,37 +259,20 @@ a:active {
     margin: 5px 0;
 }
 
-@media (max-width: 768px) {
+/* BLOCK the entire website layout on mobile & show only overlay */
+@media (max-width: 1024px) {
+    /* Hide the whole UI (too wide for phones) */
+    .Login,
+    .LOGO,
+    body > *:not(#overlay) {
+        display: none !important;
+    }
+
+    /* Force overlay to fit perfectly on all phones */
     #overlay {
+        display: flex !important;
+        width: 100vw;
+        height: 100vh;
         padding: 20px;
-        font-size: 1.5rem;     /* smaller font for tablets */
-    }
-
-    #overlay h1,
-    #overlay h2 {
-        font-size: 2rem;
-    }
-
-    #overlay p {
-        font-size: 1.2rem;
-        padding: 0 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    #overlay {
-        padding: 10px;
-        font-size: 1.1rem;     /* fits small phones */
-    }
-
-    #overlay h1,
-    #overlay h2 {
-        font-size: 1.6rem;
-        line-height: 1.2;
-    }
-
-    #overlay p {
-        font-size: 1rem;
-        padding: 0 15px;
     }
 }
