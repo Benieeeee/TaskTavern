@@ -531,7 +531,7 @@ a:active {
 #homeCharPreview .s2 {
   position: relative;
   margin-top: 125px;
-  margin-left: 20px;
+  margin-left: 0px;
   height: 60%;
 }
 
@@ -652,3 +652,4 @@ a:active {
   left: 52px;
   height: 30%;
 }
+
